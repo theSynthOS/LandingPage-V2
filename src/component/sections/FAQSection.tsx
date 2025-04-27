@@ -43,7 +43,7 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-900 text-white">
+    <section className="py-20 bg-black text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-[56px] md:text-[80px] font-light tracking-wide text-center text-gray-200 leading-none" style={{letterSpacing: '0.04em'}}>ANY QUESTION<span className="font-thin">?</span></h2>
