@@ -47,16 +47,16 @@ const FAQSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-[56px] md:text-[80px] font-light tracking-wide text-center text-gray-200 leading-none" style={{letterSpacing: '0.04em'}}>ANY QUESTION<span className="font-thin">?</span></h2>
-          <div className="mt-1 text-[56px] md:text-[80px] font-extrabold uppercase text-[#F1F1F1]" style={{
+          <div className="mt-1 text-[56px] md:text-[80px] font-light uppercase text-[#F1F1F1]" style={{
             textShadow: '0 0 16px #ffe066, 0 0 32px #ffe066, 0 0 8px #ffe066',
             letterSpacing: '0.04em',
             lineHeight: 1.1
           }}>WE GOT YOU</div>
         </div>
-        <div className="flex flex-col md:flex-row max-w-5xl mx-auto gap-8">
+        <div className="flex flex-col md:flex-row mx-auto gap-8">
           {/* Categories: Top on mobile, left on desktop */}
-          <div className="w-full md:w-1/3 md:border-r border-gray-700 md:pr-6 mb-6 md:mb-0">
-            <ul className="flex md:flex-col flex-row gap-2 md:gap-3 overflow-x-auto md:overflow-visible pb-2 md:pb-0 -mx-2 md:mx-0">
+          <div className="w-full md:w-1/5 mb-6 md:mb-0">
+            <ul className="flex md:flex-col flex-row gap-2 md:gap-3 overflow-x-auto md:overflow-visible pb-2 md:pb-0 -mx-2 md:mx-0 md:border-l border-gray-700 md:pl-6">
               {categories.map((cat) => (
                 <li key={cat} className="flex-shrink-0 w-auto md:w-full">
                   <button
@@ -77,15 +77,17 @@ const FAQSection = () => {
             </ul>
           </div>
           {/* Questions: Bottom on mobile, right on desktop */}
-          <div className="w-full md:w-2/3 border-b border-gray-700">
+          <div className="w-full md:w-4/5 border-b border-gray-700">
             {faqs.map((faq, index) => (
-              <div key={index} className="mb-4 ">
+              <div key={index}>
                 <button
-                  className="w-full text-left p-6 shadow-md hover:shadow-lg transition-shadow border-t border-gray-700"
+                  className="w-full text-left px-6 py-14 border-t border-gray-700"
                   onClick={() => toggleFAQ(index)}
                 >
                   <div className="flex justify-between items-center">
-                    <h3 className="text-lg font-semibold">{faq.question}</h3>
+                    <h3 className={`text-lg font-semibold transition-colors ${openIndex === index ? 'text-[#ffe066]' : 'text-white'}`}>
+                      {faq.question}
+                    </h3>
                     <span className="text-2xl text-[#ffe066]">
                       {openIndex === index ? '−' : '+'}
                     </span>
