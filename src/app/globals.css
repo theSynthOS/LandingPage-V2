@@ -1,8 +1,50 @@
 @import "tailwindcss";
 
+/* Import Montserrat fonts */
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: url('/fonts/Montserrat-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat-Semibold';
+  src: url('/fonts/Montserrat-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat-LightItalic';
+  src: url('/fonts/Montserrat-LightItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Import TT Travels Next Trial fonts */
+@font-face {
+  font-family: 'TT-Travels-Medium';
+  src: url('/fonts/TT-Travels-Next-Trial-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT-Travels-DemiBold';
+  src: url('/fonts/TT-Travels-Next-Trial-DemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0C0C0C;
+  --foreground: #0C0C0C;
 }
 
 @theme inline {
@@ -15,12 +57,12 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #0C0C0C;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat-Regular', Arial, Helvetica, sans-serif;
 }
