@@ -6,29 +6,19 @@ import RoadmapSection from '../component/sections/RoadmapSection';
 import TeamSection from '../component/sections/TeamSection';
 import FAQSection from '../component/sections/FAQSection';
 import CTASection from '../component/sections/CTASection';
-import Navbar from '../component/layout/Navbar';
+import Footer from '../component/layout/Footer';
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       <HeroSection />
-      <section id="partners" className="py-20 min-h-screen scroll-mt-24">
-        <PartnershipSection />
-      </section>
-      <section id="how-it-works" className="py-20 min-h-screen scroll-mt-24">
-        <HowItWorksSection />
-      </section>
-      <section id="roadmap" className="py-20 min-h-screen scroll-mt-24">
-        <RoadmapSection />
-      </section>
-      <section id="our-team" className="py-20 min-h-screen scroll-mt-24">
-        <TeamSection />
-      </section>
-      <section id="faq" className="py-20 min-h-screen scroll-mt-24">
-        <FAQSection />
-      </section>
+      <PartnershipSection />
+      <HowItWorksSection />
+      <RoadmapSection />
+      <TeamSection />
+      <FAQSection />
       <CTASection />
-      <Navbar />
+      
     </main>
   );
 }

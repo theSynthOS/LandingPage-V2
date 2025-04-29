@@ -34,7 +34,7 @@ export default function RootLayout({
         <link rel="preload" href="/fonts/TT-Travels-Next-Trial-Medium.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/TT-Travels-Next-Trial-DemiBold.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-montserrat min-h-screen relative bg-black`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-montserrat min-h-screen relative `}>
         <Header />
         <main className="">
           {children}

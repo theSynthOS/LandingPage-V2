@@ -43,8 +43,8 @@
 }
 
 :root {
-  --background: #0C0C0C;
-  --foreground: #0C0C0C;
+  --background: #060421;
+  --foreground: #060421;
 }
 
 @theme inline {
@@ -56,8 +56,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #0C0C0C;
+    --background: #060421;
+    --foreground: #060421;
   }
 }
 

@@ -123,7 +123,7 @@ const Navbar = () => {
     <>
       <div className="fixed bottom-0 left-0 w-full z-50 mb-6 md:block hidden">
         <div className="container mx-auto px-4">
-          <nav ref={navRef} className="relative py-3 px-4 bg-[#3C229C]/30 backdrop-blur-lg rounded-md max-w-4xl mx-auto border border-[#3C229C]/100">
+          <nav ref={navRef} className="relative py-3 px-4 bg-[#402D86B2]/30 backdrop-blur-lg rounded-md max-w-4xl mx-auto border-2 border-[#3C229C]/100">
             {/* Hidden duplicate content for lighting effect */}
             <ul aria-hidden="true" className="lit flex items-center p-0 m-0 list-none h-full justify-between text-transparent">
               <li className="px-5 py-2">Partners</li>
@@ -222,7 +222,7 @@ const Navbar = () => {
           height: 80px;
           border-radius: 700px;
           position: relative;
-          box-shadow: 0 0 20px rgba(124, 58, 237, 0.15);
+          box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
         }
         
         nav::before,
@@ -232,13 +232,13 @@ const Navbar = () => {
         }
         
         nav::after {
-          background: rgba(60, 30, 110, 0.15);
+          background: rgba(60, 30, 110, 0.2);
           content: '';
           position: absolute;
           inset: 0;
           z-index: -1;
           border-radius: 100px;
-          opacity: 0.4;
+          opacity: 0.3;
         }
         
         nav::before {
@@ -247,19 +247,9 @@ const Navbar = () => {
           inset: -1px;
           z-index: -1;
           border-radius: 100px;
-          border: 1px solid rgba(139, 92, 246, 0.3);
+          border: 1px solid rgba(139, 92, 246, 0.8);
           filter: url('#spotlight');
           opacity: 0.7;
-        }
-        
-        ul.content::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          border-radius: 100px;
-          pointer-events: none;
-          border: 1px solid rgba(139, 92, 246, 0.4);
-          filter: url('#ambience') brightness(1.5);
         }
         
         ul.lit {
@@ -278,13 +268,13 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, isActive, onClick }) 
   return (
     <Link 
       href={href} 
-      className={`relative px-4 py-2 transition-colors duration-300 ${isActive ? 'text-white opacity-100' : 'text-gray-600 opacity-40 hover:opacity-100'}`}
+      className={`relative px-4 py-2 transition-colors duration-300 ${isActive ? 'text-white opacity-100' : 'text-gray-400 opacity-40 hover:opacity-100'}`}
       onClick={onClick}
       data-active={isActive}
     >
       <span>{children}</span>
       {isActive && (
-        <span className="absolute inset-0 rounded-full bg-purple-500/5"></span>
+        <span className="absolute inset-0 rounded-full "></span>
       )}
     </Link>
   );
