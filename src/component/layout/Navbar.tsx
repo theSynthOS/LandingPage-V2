@@ -86,6 +86,8 @@ const Navbar = () => {
       }
     };
     
+    handleScroll(); // Call immediately to set initial active section
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [activeSection]);
@@ -158,16 +160,16 @@ const Navbar = () => {
       {/* SVG filters for lighting effects */}
       <svg className="sr-only">
         <filter id="spotlight">
-          <feGaussianBlur in="SourceAlpha" stdDeviation="1.9" result="blur"></feGaussianBlur>
+          <feGaussianBlur in="SourceAlpha" stdDeviation="2.5" result="blur"></feGaussianBlur>
           <feSpecularLighting
             result="lighting"
             in="blur"
             surfaceScale="0.5"
-            specularConstant="4"
-            specularExponent="55"
+            specularConstant="3"
+            specularExponent="45"
             lighting-color={config.spotlight.light}
           >
-            <fePointLight ref={spotlightRef} x="50" y="60" z="82"></fePointLight>
+            <fePointLight ref={spotlightRef} x="50" y="60" z="100"></fePointLight>
           </feSpecularLighting>
           <feComposite
             in="lighting"
@@ -187,16 +189,16 @@ const Navbar = () => {
           ></feComposite>
         </filter>
         <filter id="ambience">
-          <feGaussianBlur in="SourceAlpha" stdDeviation="1.5" result="blur"></feGaussianBlur>
+          <feGaussianBlur in="SourceAlpha" stdDeviation="2.5" result="blur"></feGaussianBlur>
           <feSpecularLighting
             result="lighting"
             in="blur"
             surfaceScale="0.5"
-            specularConstant="15"
-            specularExponent="100"
+            specularConstant="25"
+            specularExponent="65"
             lighting-color={config.ambience.light}
           >
-            <fePointLight x="120" y="-154" z="160"></fePointLight>
+            <fePointLight x="120" y="-100" z="180"></fePointLight>
           </feSpecularLighting>
           <feComposite
             in="lighting"
@@ -249,7 +251,7 @@ const Navbar = () => {
           border-radius: 1.5rem;
           border: 1px solid rgba(139, 92, 246, 0.8);
           filter: url('#spotlight');
-          opacity: 0.6;
+          opacity: 0.7;
         }
         
         ul.lit {
