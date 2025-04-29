@@ -11,7 +11,7 @@ interface NavLinkProps {
 }
 
 const Navbar = () => {
-  const [activeSection, setActiveSection] = useState('partners');
+  const [activeSection, setActiveSection] = useState<string | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const spotlightRef = useRef<SVGFEPointLightElement>(null);
   
@@ -41,8 +41,19 @@ const Navbar = () => {
   };
   
   // Update spotlight position based on active link
-  const updateSpotlight = (section: string) => {
+  const updateSpotlight = (section: string | null) => {
     if (!navRef.current || !spotlightRef.current) return;
+    
+    if (!section) {
+      // If no section is active, hide spotlight by moving it off-screen
+      gsap.to(spotlightRef.current, {
+        duration: config.spotlight.speed,
+        attr: {
+          x: -100,
+        },
+      });
+      return;
+    }
     
     const navBounds = navRef.current.getBoundingClientRect();
     const activeLink = navRef.current.querySelector(`a[href="#${section}"]`);
@@ -53,7 +64,7 @@ const Navbar = () => {
       gsap.to(spotlightRef.current, {
         duration: config.spotlight.speed,
         attr: {
-          x: anchorBounds.left - navBounds.left + anchorBounds.width * 0.5 + config.spotlight.x,
+          x: anchorBounds.left - navBounds.left + anchorBounds.width * 0.5,
         },
       });
     }
@@ -65,6 +76,15 @@ const Navbar = () => {
       const sections = ['partners', 'how-it-works', 'roadmap', 'our-team', 'faq'];
       let closestSection = '';
       let closestDistance = Number.MAX_VALUE;
+      
+      // Check if we're at the hero section (top of page)
+      if (window.scrollY < 100) {
+        if (activeSection !== 'partners') {
+          setActiveSection('partners');
+          updateSpotlight('partners');
+        }
+        return;
+      }
       
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -86,17 +106,18 @@ const Navbar = () => {
       }
     };
     
-    handleScroll(); // Call immediately to set initial active section
+    // Call on initial render
+    handleScroll();
     
+    // Setup scroll listener
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [activeSection]);
+  }, [activeSection]); // Add back activeSection dependency to properly update
   
   // Handle click on navigation links
   const handleClick = (e: React.MouseEvent, section: string) => {
     e.preventDefault();
     setActiveSection(section);
-    updateSpotlight(section);
     
     const targetElement = document.getElementById(section);
     if (targetElement) {
@@ -106,6 +127,9 @@ const Navbar = () => {
         behavior: 'smooth'
       });
     }
+    
+    // Force update the spotlight position immediately
+    updateSpotlight(section);
   };
 
   // Initial spotlight setup
@@ -113,18 +137,24 @@ const Navbar = () => {
     // Add smooth scrolling to the entire document
     document.documentElement.style.scrollBehavior = 'smooth';
     
-    updateSpotlight(activeSection);
+    // Default to Partners if no section is selected yet
+    if (!activeSection) {
+      setActiveSection('partners');
+      updateSpotlight('partners');
+    } else {
+      updateSpotlight(activeSection);
+    }
     
     return () => {
       // Clean up
       document.documentElement.style.scrollBehavior = '';
     };
-  }, [activeSection]);
+  }, []);
 
   return (
     <>
       <div className="fixed bottom-0 left-0 w-full z-50 mb-6 md:block hidden">
-        <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4">
           <nav ref={navRef} className="relative py-3 px-4 bg-[#402D86B2]/30 backdrop-blur-lg rounded-md max-w-4xl mx-auto border-2 border-[#3C229C]/100">
             {/* Hidden duplicate content for lighting effect */}
             <ul aria-hidden="true" className="lit flex items-center p-0 m-0 list-none h-full justify-between text-transparent">
@@ -160,16 +190,16 @@ const Navbar = () => {
       {/* SVG filters for lighting effects */}
       <svg className="sr-only">
         <filter id="spotlight">
-          <feGaussianBlur in="SourceAlpha" stdDeviation="2.5" result="blur"></feGaussianBlur>
+          <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"></feGaussianBlur>
           <feSpecularLighting
             result="lighting"
             in="blur"
-            surfaceScale="0.5"
-            specularConstant="3"
-            specularExponent="45"
+            surfaceScale="0.6"
+            specularConstant="1.5"
+            specularExponent="90"
             lighting-color={config.spotlight.light}
           >
-            <fePointLight ref={spotlightRef} x="50" y="60" z="100"></fePointLight>
+            <fePointLight ref={spotlightRef} x="50" y="60" z="180"></fePointLight>
           </feSpecularLighting>
           <feComposite
             in="lighting"
@@ -189,13 +219,13 @@ const Navbar = () => {
           ></feComposite>
         </filter>
         <filter id="ambience">
-          <feGaussianBlur in="SourceAlpha" stdDeviation="2.5" result="blur"></feGaussianBlur>
+          <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"></feGaussianBlur>
           <feSpecularLighting
             result="lighting"
             in="blur"
             surfaceScale="0.5"
-            specularConstant="25"
-            specularExponent="65"
+            specularConstant="15"
+            specularExponent="55"
             lighting-color={config.ambience.light}
           >
             <fePointLight x="120" y="-100" z="180"></fePointLight>
@@ -230,7 +260,7 @@ const Navbar = () => {
         nav::before,
         nav::after,
         nav ul.lit {
-          filter: url('#spotlight');
+          filter: url('#spotlight')
         }
         
         nav::after {
@@ -240,7 +270,7 @@ const Navbar = () => {
           inset: 0;
           z-index: -1;
           border-radius: 1.5rem;
-          opacity: 0.3;
+          opacity: 0.2;
         }
         
         nav::before {
@@ -250,8 +280,9 @@ const Navbar = () => {
           z-index: -1;
           border-radius: 1.5rem;
           border: 1px solid rgba(139, 92, 246, 0.8);
-          filter: url('#spotlight');
-          opacity: 0.7;
+          filter: url('#spotlight'), url('#ambience');
+          opacity: 0.6;
+          box-shadow: 0 0 15px 1px rgba(124, 58, 237, 0.3);
         }
         
         ul.lit {
@@ -270,13 +301,14 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, isActive, onClick }) 
   return (
     <Link 
       href={href} 
-      className={`relative px-4 py-2 transition-colors duration-300 ${isActive ? 'text-white opacity-100' : 'text-gray-400 opacity-40 hover:opacity-100'}`}
+      className={`relative px-4 py-2 transition-colors duration-300 ${isActive ? 'text-white opacity-100' : 'text-gray-400 opacity-40 hover:opacity-100'}` }
       onClick={onClick}
       data-active={isActive}
+      style={{fontFamily: 'Montserrat-SemiBold'}}
     >
       <span>{children}</span>
       {isActive && (
-        <span className="absolute inset-0 rounded-full "></span>
+        <span className="absolute inset-0 rounded-md"></span>
       )}
     </Link>
   );

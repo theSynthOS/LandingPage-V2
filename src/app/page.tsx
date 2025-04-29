@@ -12,19 +12,19 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <HeroSection />
-      <section id="partners" className="py-20 min-h-screen scroll-mt-24">
+      <section id="partners" className=" min-h-screen scroll-mt-24">
         <PartnershipSection />
       </section>
-      <section id="how-it-works" className="py-20 min-h-screen scroll-mt-24">
+      <section id="how-it-works" className=" min-h-screen scroll-mt-24">
         <HowItWorksSection />
       </section>
-      <section id="roadmap" className="py-20 min-h-screen scroll-mt-24">
+      <section id="roadmap" className=" min-h-screen scroll-mt-24">
         <RoadmapSection />
       </section>
-      <section id="our-team" className="py-20 min-h-screen scroll-mt-24">
+      <section id="our-team" className=" min-h-screen scroll-mt-24">
         <TeamSection />
       </section>
-      <section id="faq" className="py-20 min-h-screen scroll-mt-24">
+      <section id="faq" className=" min-h-screen scroll-mt-24">
         <FAQSection />
       </section>
       <CTASection />
