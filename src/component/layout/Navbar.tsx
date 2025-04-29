@@ -25,7 +25,7 @@ const Navbar = () => {
       exponent: 65,
       light: 'hsla(234, 14%, 100%, 0.45)',
       x: 0,
-      y: 20,
+      y: 40,
       z: 82,
     },
     ambience: {
@@ -158,16 +158,16 @@ const Navbar = () => {
       {/* SVG filters for lighting effects */}
       <svg className="sr-only">
         <filter id="spotlight">
-          <feGaussianBlur in="SourceAlpha" stdDeviation="0.8" result="blur"></feGaussianBlur>
+          <feGaussianBlur in="SourceAlpha" stdDeviation="1.9" result="blur"></feGaussianBlur>
           <feSpecularLighting
             result="lighting"
             in="blur"
             surfaceScale="0.5"
-            specularConstant="6"
-            specularExponent="65"
+            specularConstant="4"
+            specularExponent="55"
             lighting-color={config.spotlight.light}
           >
-            <fePointLight ref={spotlightRef} x="50" y="20" z="82"></fePointLight>
+            <fePointLight ref={spotlightRef} x="50" y="60" z="82"></fePointLight>
           </feSpecularLighting>
           <feComposite
             in="lighting"
@@ -187,13 +187,13 @@ const Navbar = () => {
           ></feComposite>
         </filter>
         <filter id="ambience">
-          <feGaussianBlur in="SourceAlpha" stdDeviation="0.8" result="blur"></feGaussianBlur>
+          <feGaussianBlur in="SourceAlpha" stdDeviation="1.5" result="blur"></feGaussianBlur>
           <feSpecularLighting
             result="lighting"
             in="blur"
             surfaceScale="0.5"
-            specularConstant="25"
-            specularExponent="65"
+            specularConstant="15"
+            specularExponent="100"
             lighting-color={config.ambience.light}
           >
             <fePointLight x="120" y="-154" z="160"></fePointLight>
@@ -220,7 +220,7 @@ const Navbar = () => {
       <style jsx>{`
         nav {
           height: 80px;
-          border-radius: 700px;
+          border-radius: 1.5rem;
           position: relative;
           box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
         }
@@ -237,7 +237,7 @@ const Navbar = () => {
           position: absolute;
           inset: 0;
           z-index: -1;
-          border-radius: 100px;
+          border-radius: 1.5rem;
           opacity: 0.3;
         }
         
@@ -246,10 +246,10 @@ const Navbar = () => {
           position: absolute;
           inset: -1px;
           z-index: -1;
-          border-radius: 100px;
+          border-radius: 1.5rem;
           border: 1px solid rgba(139, 92, 246, 0.8);
           filter: url('#spotlight');
-          opacity: 0.7;
+          opacity: 0.6;
         }
         
         ul.lit {
