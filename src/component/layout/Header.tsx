@@ -157,7 +157,7 @@ const Header = () => {
             </Link>
           </div>
           
-          <div className="flex items-center">
+          <div className="flex items-cente z-50">
             {/* Launch App Button - Hidden on Mobile */}
             <a href="#" className="hidden md:block">
               <GlowButton>Launch App</GlowButton>

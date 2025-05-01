@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react';
+import GlowButton from '../GlowButton';
 
 const HowItWorksSection = () => {
   const [isProtocol, setIsProtocol] = useState(false);
@@ -43,11 +44,11 @@ const HowItWorksSection = () => {
       <div className="container mx-auto px-4 py-4 relative z-10">
         {/* Toggle Switch */}
         <div className="flex justify-center items-center mb-12">
-          <div className="backdrop-blur-sm border border-purple-400/50 rounded-full py-2 px-10 inline-flex items-center shadow-sm shadow-purple-400">
+          <div className="backdrop-blur-sm border border-purple-400/50 rounded-full py-2 px-4 md:px-10 inline-flex items-center shadow-sm shadow-purple-400">
             {/* Make User text clickable */}
             <button 
               onClick={() => setIsProtocol(false)}
-              className={`text-xl mr-4 transition-all duration-300 ${
+              className={`text-lg md:text-xl mr-4 transition-all duration-300 ${
                 !isProtocol 
                   ? 'text-purple-400 font-bold drop-shadow-[0_0_8px_rgba(249,115,22,0.8)]' 
                   : 'text-white/60 hover:text-white/80'
@@ -56,6 +57,7 @@ const HowItWorksSection = () => {
               User
             </button>
             
+            {/* Toggle switch */}
             <button 
               onClick={handleToggle}
               className="relative inline-flex h-8 w-16 items-center rounded-full border-2 border-purple-500/70 shadow-[0_0_10px_rgba(249,115,22,0.5)]"
@@ -74,7 +76,7 @@ const HowItWorksSection = () => {
             {/* Make Protocol text clickable */}
             <button 
               onClick={() => setIsProtocol(true)}
-              className={`text-xl ml-4 transition-all duration-300 ${
+              className={`text-lg md:text-xl ml-4 transition-all duration-300 ${
                 isProtocol 
                   ? 'text-purple-400 font-bold drop-shadow-[0_0_8px_rgba(249,115,22,0.8)]' 
                   : 'text-white/60 hover:text-white/80'
@@ -88,9 +90,9 @@ const HowItWorksSection = () => {
         {/* Main Title - Conditional based on toggle state */}
         <h1 className="text-4xl md:text-5xl lg:text-6xl mb-8 text-white text-center font-bold" style={{fontFamily: 'Montserrat-Regular'}}>
           {isProtocol ? (
-            <>DeFi made <span className="text-white" style={{ textShadow: '0 0 10px white, 0 0 40px yellow, 0 0 30px orange' }}>conversational</span></>
-          ) : (
             <>Build Your <span className="text-white" style={{ textShadow: '0 0 10px white, 0 0 40px yellow, 0 0 30px orange' }}>Agent</span> Stack</>
+          ) : (
+            <>DeFi made <span className="text-white" style={{ textShadow: '0 0 10px white, 0 0 40px yellow, 0 0 30px orange' }}>conversational</span></>
           )}
         </h1>
         
@@ -101,19 +103,19 @@ const HowItWorksSection = () => {
         
         {/* Features Section - Make features clickable */}
         <div className="flex flex-col items-center justify-center mb-16">
-          <div className="w-full max-w-md flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+          <div className="w-full max-w-md flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-center">
             {features.map((feature, index) => (
-              <button 
+              <GlowButton 
                 key={index} 
                 onClick={() => setSelectedFeature(index)}
-                className={`w-64 sm:w-auto py-3 px-10 rounded-full transition-all duration-700 text-center text-nowrap ${
+                className={`w-64 sm:w-auto rounded-full transition-all duration-700 text-center text-nowrap ${
                   selectedFeature === index 
-                    ? 'text-purple-100 bg-purple-500/30 border border-purple-400/40 shadow-md shadow-purple-500/50' 
-                    : 'text-purple-500/80 hover:text-white border border-purple-500/30 hover:bg-purple-500/10'
+                    ? 'text-purple-100 bg-purple-700/50 shadow-xl shadow-purple-200 ' 
+                    : 'text-purple-300/80 hover:text-white bg-purple-900/10 hover:bg-blue-900/20'
                 }`}
               >
                 {feature}
-              </button>
+              </GlowButton>
             ))}
           </div>
         </div>
