@@ -30,8 +30,17 @@ const HowItWorksSection = () => {
   };
 
   return (
-    <section id="how-it-works" className="scroll-mt-24 relative">
-      <div className="container mx-auto px-4 py-4">
+    <section id="how-it-works" className="scroll-mt-24 relative min-h-screen py-16">
+      {/* Background gradient */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 bg-[#060421] "></div>
+        <div className="absolute w-full h-full bg-gradient-to-b from-[#060421] via-[#150b39] to-[#060421]"></div>
+        <div className="absolute w-1/2 h-screen top-1/3 left-1/4 rounded-full bg-purple-100/10 blur-[120px]"></div>
+        <div className="absolute w-1/3 h-1/4 top-1/3 right-0 rounded-full bg-blue-900/30 blur-[150px]"></div>
+        <div className="absolute w-2/4 h-1/4 bottom-52 right-2/4 rounded-full bg-purple-500/20 blur-[100px]"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 py-4 relative z-10">
         {/* Toggle Switch */}
         <div className="flex justify-center items-center mb-12">
           <div className="backdrop-blur-sm border border-purple-400/50 rounded-full py-2 px-10 inline-flex items-center shadow-sm shadow-purple-400">
@@ -77,7 +86,7 @@ const HowItWorksSection = () => {
         </div>
         
         {/* Main Title - Conditional based on toggle state */}
-        <h1 className="text-3xl md:text-5xl lg:text-6xl mb-8 text-white text-center font-bold" style={{fontFamily: 'Montserrat-Regular'}}>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl mb-8 text-white text-center font-bold" style={{fontFamily: 'Montserrat-Regular'}}>
           {isProtocol ? (
             <>DeFi made <span className="text-white" style={{ textShadow: '0 0 10px white, 0 0 40px yellow, 0 0 30px orange' }}>conversational</span></>
           ) : (

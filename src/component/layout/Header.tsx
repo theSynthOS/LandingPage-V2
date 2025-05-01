@@ -44,7 +44,7 @@ const MobileNav = () => {
           {/* Video Background */}
           <div className="absolute inset-0 z-0 overflow-hidden">
             <video className="absolute inset-0 object-cover w-full h-full" autoPlay loop muted>
-              <source src="/bg-heroSection.mp4" type="video/mp4" />
+              <source src="/bg-heroSection-base.mp4" type="video/mp4" />
             </video>
             {/* Dark overlay for better readability */}
             <div className="absolute inset-0 "></div>

@@ -7,7 +7,7 @@ const HeroSection = () => {
     <section className="min-h-screen relative flex items-center justify-center overflow-hidden pt-24 pb-32">
        <div className="absolute inset-0 overflow-hidden z-0">
          <video className="absolute inset-0 object-cover w-full h-full" autoPlay loop muted>
-           <source src="/bg-heroSection.mp4" type="video/mp4" />
+           <source src="/bg-heroSection-base.mp4" type="video/mp4" />
          </video>
        </div>
       <div className="container mx-auto px-4 relative z-10">
@@ -22,7 +22,7 @@ const HeroSection = () => {
           
           {/* Launch App Button - Visible only on mobile */}
           <div className="mt-8 md:hidden">
-            <Link href="https://app.synthos.fun" className='' >
+            <Link href="https://app.synthos.fun" target="_blank" rel="noopener noreferrer">
               <GlowButton>Launch App</GlowButton>
             </Link>
           </div>

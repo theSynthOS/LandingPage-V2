@@ -15,7 +15,7 @@ export default function Home() {
       <section id="partners" className=" min-h-screen scroll-mt-24">
         <PartnershipSection />
       </section>
-      <section id="how-it-works" className=" min-h-screen scroll-mt-24">
+      <section id="how-it-works" className=" min-h-screen scroll-mt-11">
         <HowItWorksSection />
       </section>
       <section id="roadmap" className=" min-h-screen scroll-mt-24">
