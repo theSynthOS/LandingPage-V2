@@ -31,7 +31,7 @@ const HowItWorksSection = () => {
 
   return (
     <section id="how-it-works" className="scroll-mt-24 relative">
-      <div className="container mx-auto px-4 py-4 max-w-7xl">
+      <div className="container mx-auto px-4 py-4">
         {/* Toggle Switch */}
         <div className="flex justify-center items-center mb-12">
           <div className="backdrop-blur-sm border border-purple-400/50 rounded-full py-2 px-10 inline-flex items-center shadow-sm shadow-purple-400">
@@ -99,8 +99,8 @@ const HowItWorksSection = () => {
                 onClick={() => setSelectedFeature(index)}
                 className={`w-64 sm:w-auto py-3 px-10 rounded-full transition-all duration-700 text-center text-nowrap ${
                   selectedFeature === index 
-                    ? 'text-white bg-purple-500/30 border border-purple-400 shadow-[0_0_8px_rgba(168,85,247,0.4)] ' 
-                    : 'text-white/70 hover:text-white border border-purple-500/30 hover:bg-purple-500/10'
+                    ? 'text-purple-100 bg-purple-500/30 border border-purple-400/40 shadow-md shadow-purple-500/50' 
+                    : 'text-purple-500/80 hover:text-white border border-purple-500/30 hover:bg-purple-500/10'
                 }`}
               >
                 {feature}
