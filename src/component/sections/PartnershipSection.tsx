@@ -3,7 +3,7 @@ import React from 'react';
 const PartnershipSection = () => {
   const partners = [
     {
-      name: 'Partner 1',
+      name: 'Scroll',
       logo: '🏢',
       description: 'Strategic Technology Partner'
     },
