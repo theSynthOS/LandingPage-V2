@@ -16,9 +16,9 @@ const Footer = () => {
   return (
     <footer className="bg-black-100 text-gray-300">
       <div className="border-t border-gray-800 mt-12 pt-8">
-        <div className="container mx-auto px-4 py-12">
-          <div className="flex justify-end">
-            <div className="flex space-x-16 mr-18 mb-16">
+        <div className="px-4 md:px-8 py-8 md:py-12">
+          <div className="flex flex-col md:flex-row justify-end">
+            <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-16 mb-8 md:mb-0">
               <div>
                 <h3 className="text-white text-lg font-semibold mb-4">Company</h3>
                 <ul className="space-y-2">
@@ -45,30 +45,32 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          
-          <div className="border-t border-gray-800 mt-12 pt-8">
-            <div className="flex justify-between items-center px-8">
-              <p className="ml-8">&copy; {currentYear} SynthOS. All Rights Reserved.</p>
-              <div className="flex space-x-6 mr-8">
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors"
-                  aria-label="X (formerly Twitter)"
-                >
-                  <FaXTwitter size={24} />
-                </a>
-                <a
-                  href="https://telegram.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors"
-                  aria-label="Telegram"
-                >
-                  <FaTelegram size={24} />
-                </a>
-              </div>
+        </div>
+      </div>
+      
+      <div className="border-t border-gray-800 mt-12 pt-8">
+        <div className="px-4 md:px-8 py-8 md:py-12">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-center md:text-left">&copy; {currentYear} SynthOS. All Rights Reserved.</p>
+            <div className="flex space-x-6">
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-white transition-colors"
+                aria-label="X (formerly Twitter)"
+              >
+                <FaXTwitter size={24} />
+              </a>
+              <a
+                href="https://telegram.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-white transition-colors"
+                aria-label="Telegram"
+              >
+                <FaTelegram size={24} />
+              </a>
             </div>
           </div>
         </div>
