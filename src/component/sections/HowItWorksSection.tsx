@@ -108,10 +108,10 @@ const HowItWorksSection = () => {
               <GlowButton 
                 key={index} 
                 onClick={() => setSelectedFeature(index)}
-                className={`w-64 sm:w-auto rounded-full transition-all duration-700 text-center text-nowrap ${
+                className={`w-auto rounded-full transition-all duration-700 text-lg md:text-xl text-center text-nowrap ${
                   selectedFeature === index 
                     ? 'text-purple-100 bg-purple-700/50 shadow-xl shadow-purple-200 ' 
-                    : 'text-purple-300/80 hover:text-white bg-purple-900/10 hover:bg-blue-900/20'
+                    : 'text-purple-300/80 hover:text-white bg-purple-900/10 hover:bg-blue-700/20'
                 }`}
               >
                 {feature}
@@ -131,6 +131,10 @@ const HowItWorksSection = () => {
             </p>
           </div>
         </div>
+
+      {/* Part 2 */}
+      <h1 className='text-4xl md:text-5xl xl:text-6xl mb-8 text-white text-center font-bold mt-20' style={{fontFamily: 'Montserrat-Regular'}}><span className="text-white" style={{ textShadow: '0 0 10px white, 0 0 40px yellow, 0 0 30px orange' }}>SynthOS</span> is made for you who 👇🏻</h1>
+      
       </div>
     </section>
   );
