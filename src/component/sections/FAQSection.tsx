@@ -2,31 +2,41 @@
 
 import React, { useState } from 'react';
 
+const categories = [
+  'Getting Started',
+  'Using Agents',
+  'SDK & Integration',
+  'User Experience',
+];
+
+const categoryFaqs: Record<string, { question: string; answer: string }[]> = {
+  'Getting Started': [
+    { question: 'What is SynthOS in one sentence?', answer: 'Dummy answer for signing up.' },
+    { question: 'Do I need to know smart contracts to use this?', answer: 'Dummy answer for free trial.' },
+    { question: 'Who is SynthOS built for — protocols or users?', answer: 'Dummy answer for requirements.' },
+  ],
+  'Using Agents': [
+    { question: 'What are SynthOS agents, exactly?', answer: 'Dummy answer for creating agent.' },
+    { question: 'How does agent selection work in simple mode?', answer: 'Dummy answer for customizing agents.' },
+    { question: 'Can I customize or build my own agent?', answer: 'Dummy answer for monitoring.' },
+  ],
+  'SDK & Integration': [
+    { question: 'How do I integrate SynthOS with my protocol?', answer: 'Dummy answer for SDK.' },
+    { question: 'What chains does AgentKit currently support?', answer: 'Dummy answer for integration.' },
+    { question: 'How long does it take to go live?', answer: 'Dummy answer for languages.' },
+  ],
+  'User Experience': [
+    { question: 'What’s the difference between simple and advanced mode?', answer: 'Dummy answer for feedback.' },
+    { question: 'Can I test SynthOS before deploying on mainnet?', answer: 'Dummy answer for UI customization.' },
+    { question: 'How do users know they’re getting the best strategy?', answer: 'Dummy answer for dark mode.' },
+  ],
+};
+
 const FAQSection = () => {
+  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const faqs = [
-    {
-      question: 'What services do you offer?',
-      answer: 'We offer a comprehensive range of digital services including web development, mobile apps, cloud solutions, and digital transformation consulting.'
-    },
-    {
-      question: 'How long does a typical project take?',
-      answer: 'Project timelines vary depending on scope and complexity. A typical project can take anywhere from 4-12 weeks, but we\'ll provide a detailed timeline during our initial consultation.'
-    },
-    {
-      question: 'Do you offer ongoing support?',
-      answer: 'Yes, we provide comprehensive support and maintenance services to ensure your solution continues to perform optimally after launch.'
-    },
-    {
-      question: 'What is your pricing structure?',
-      answer: 'We offer flexible pricing models tailored to your specific needs. Contact us for a detailed quote based on your requirements.'
-    },
-    {
-      question: 'How do you ensure project quality?',
-      answer: 'We follow industry best practices, conduct thorough testing, and maintain clear communication throughout the development process.'
-    }
-  ];
+  const faqs = categoryFaqs[selectedCategory];
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
