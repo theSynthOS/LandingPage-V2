@@ -159,7 +159,10 @@ const Header = () => {
           
           <div className="flex items-cente z-50">
             {/* Launch App Button - Hidden on Mobile */}
-            <a href="#" className="hidden md:block">
+            <a href="https://app.synthos.fun" className="hidden md:block"
+              target="_blank" 
+              rel="noopener noreferrer"
+              >
               <GlowButton>Launch App</GlowButton>
             </a>
             

@@ -1,10 +1,14 @@
 'use client'
-import React, { useState } from 'react';
-import GlowButton from '../GlowButton';
+import React, { useState, useEffect, useRef } from 'react';
+import GlowButton from '../../GlowButton';
+import { useTransform, motion, useScroll } from 'framer-motion';
+import ScrollCard from './ScrollCard';
+import { stakeCards } from './CardText';
 
 const HowItWorksSection = () => {
   const [isProtocol, setIsProtocol] = useState(false);
   const [selectedFeature, setSelectedFeature] = useState(0);
+  const container = useRef<HTMLDivElement>(null);
   
   // Toggle switch handler
   const handleToggle = () => {
@@ -30,14 +34,20 @@ const HowItWorksSection = () => {
     }
   };
 
+  // Scroll progress for cards
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ['start start', 'end end']
+  });
+
   return (
     <section id="how-it-works" className="scroll-mt-24 relative min-h-screen py-16">
       {/* Background gradient */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[#060421] "></div>
+        <div className="absolute inset-0 bg-[#060421]"></div>
         <div className="absolute w-full h-full bg-gradient-to-b from-[#060421] via-[#150b39] to-[#060421]"></div>
-        <div className="absolute w-1/2 h-screen top-1/3 left-1/4 rounded-full bg-purple-100/10 blur-[120px]"></div>
-        <div className="absolute w-1/3 h-1/4 top-1/3 right-0 rounded-full bg-blue-900/30 blur-[150px]"></div>
+        <div className="absolute w-1/2 h-screen top-1/3 left-1/4 rounded-full bg-blue-100/10 blur-[120px]"></div>
+        <div className="absolute w-1/3 h-1/4 top-1/3 right-0 rounded-full bg-purple-900/30 blur-[150px]"></div>
         <div className="absolute w-2/4 h-1/4 bottom-52 right-2/4 rounded-full bg-purple-500/20 blur-[100px]"></div>
       </div>
       
@@ -132,9 +142,40 @@ const HowItWorksSection = () => {
           </div>
         </div>
 
-      {/* Part 2 */}
-      <h1 className='text-4xl md:text-5xl xl:text-6xl mb-8 text-white text-center font-bold mt-20' style={{fontFamily: 'Montserrat-Regular'}}><span className="text-white" style={{ textShadow: '0 0 10px white, 0 0 40px yellow, 0 0 30px orange' }}>SynthOS</span> is made for you who 👇🏻</h1>
-      
+        {/* Part 2 - Scroll Cards */}
+        <div className="relative">
+          <motion.h1 
+            className="text-4xl md:text-5xl xl:text-6xl mb-8 text-white text-center font-bold mt-20 sticky top-8 z-20 py-4 backdrop-blur-md"
+            style={{fontFamily: 'Montserrat-Regular'}}
+          >
+            <span className="text-white" style={{ textShadow: '0 0 10px white, 0 0 40px yellow, 0 0 30px orange' }}>
+              SynthOS
+            </span> is made for you who 👇🏻
+          </motion.h1>
+          
+          {/* Scroll Cards Container */}
+          <div 
+            ref={container} 
+            className="relative min-h-[200vh] bg-transparent pt-[50px] scroll-smooth snap-y snap-mandatory"
+          >
+            {stakeCards.map((card, i) => {
+              const targetScale = 1 - ((stakeCards.length - i) * 0.05);
+              return (
+                <ScrollCard
+                  key={i}
+                  i={i}
+                  title={card.title}
+                  description={card.description}
+                  icon={card.icon}
+                  progress={scrollYProgress}
+                  range={[i * 0.25, 1]}
+                  targetScale={targetScale}
+                  total={stakeCards.length}
+                />
+              );
+            })}
+          </div>
+        </div>
       </div>
     </section>
   );
