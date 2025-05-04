@@ -74,8 +74,6 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['partners', 'how-it-works', 'roadmap', 'our-team', 'faq'];
-      let closestSection = '';
-      let closestDistance = Number.MAX_VALUE;
       
       // Check if we're at the hero section (top of page)
       if (window.scrollY < 100) {
@@ -85,51 +83,66 @@ const Navbar = () => {
         }
         return;
       }
+
+      // Find which section is currently in view
+      let currentSection = sections[0]; // Default to first section
       
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          // Calculate distance to viewport center
-          const distance = Math.abs(rect.top + rect.height / 2 - window.innerHeight / 2);
-          
-          if (distance < closestDistance) {
-            closestDistance = distance;
-            closestSection = section;
+          // Consider a section in view when its top is near the top of the viewport
+          // Adding a small offset to trigger slightly before the section starts
+          if (rect.top <= 150) { // Increased from 0 to 150px to trigger earlier
+            currentSection = section;
           }
         }
       }
       
-      if (closestSection && closestSection !== activeSection) {
-        setActiveSection(closestSection);
-        updateSpotlight(closestSection);
+      if (currentSection !== activeSection) {
+        setActiveSection(currentSection);
+        updateSpotlight(currentSection);
       }
     };
     
     // Call on initial render
     handleScroll();
     
-    // Setup scroll listener
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [activeSection]); // Add back activeSection dependency to properly update
+    // Setup scroll listener with debounce for performance
+    let timeoutId: NodeJS.Timeout;
+    const debouncedScroll = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(handleScroll, 10);
+    };
+    
+    window.addEventListener('scroll', debouncedScroll);
+    return () => {
+      window.removeEventListener('scroll', debouncedScroll);
+      clearTimeout(timeoutId);
+    };
+  }, [activeSection]);
   
   // Handle click on navigation links
   const handleClick = (e: React.MouseEvent, section: string) => {
     e.preventDefault();
+    
+    // Immediately update the active section and spotlight
     setActiveSection(section);
+    updateSpotlight(section);
     
     const targetElement = document.getElementById(section);
     if (targetElement) {
+      // Get the element's position relative to the viewport
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      // Get the current scroll position
+      const offsetPosition = elementPosition + window.pageYOffset - 100;
+      
       // Scroll to the target section with smooth behavior
       window.scrollTo({
-        top: targetElement.offsetTop - 100, // Offset for header
+        top: offsetPosition,
         behavior: 'smooth'
       });
     }
-    
-    // Force update the spotlight position immediately
-    updateSpotlight(section);
   };
 
   // Initial spotlight setup
