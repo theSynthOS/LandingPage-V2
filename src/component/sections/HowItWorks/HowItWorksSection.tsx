@@ -165,7 +165,7 @@ const HowItWorksSection = () => {
         </div>
 
         {/* Part 2 - Scroll Cards */}
-        <div className="relative mt-32">
+        <div className="relative mt-32 px-3">
           {/* Background effects for card section */}
           <div className="absolute inset-0 overflow-hidden -z-10">
             <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-3/4 h-[400px] rounded-full bg-purple-900/30 blur-[150px]"></div>
