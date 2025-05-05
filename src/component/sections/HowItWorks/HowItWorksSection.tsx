@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef, useMemo } from 'react';
 import GlowButton from '../../GlowButton';
 import { useTransform, motion, useScroll } from 'framer-motion';
 import ScrollCard from './ScrollCard';
@@ -34,20 +34,40 @@ const HowItWorksSection = () => {
     }
   };
 
-  // Scroll progress for cards
+  // Scroll progress for cards with optimized performance
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ['start start', 'end end']
+    offset: ['start start', 'end end'],
   });
 
+  // Pre-compute card information to avoid recalculations during renders
+  const renderCards = useMemo(() => {
+    return stakeCards.map((card, i) => {
+      const targetScale = 1 - ((stakeCards.length - i) * 0.05);
+      return (
+        <ScrollCard
+          key={i}
+          i={i}
+          title={card.title}
+          description={card.description}
+          icon={card.icon}
+          progress={scrollYProgress}
+          range={[i * 0.25, 1]}
+          targetScale={targetScale}
+          total={stakeCards.length}
+        />
+      );
+    });
+  }, [scrollYProgress]); // Only re-compute when scrollYProgress changes
+
   return (
-    <section id="how-it-works" className="scroll-mt-24 relative min-h-screen py-16">
+    <section id="how-it-works" className="scroll-mt-24 relative min-h-screen py-16 overscroll-none">
       {/* Background gradient */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-[#060421]"></div>
         <div className="absolute w-full h-full bg-gradient-to-b from-[#060421] via-[#150b39] to-[#060421]"></div>
-        <div className="absolute w-1/2 h-screen top-1/3 left-1/4 rounded-full bg-blue-100/10 blur-[120px]"></div>
-        <div className="absolute w-1/3 h-1/4 top-1/3 right-0 rounded-full bg-purple-900/30 blur-[150px]"></div>
+        <div className="absolute w-1/2 h-screen top-1/3 left-1/4 rounded-full bg-purple-100/10 blur-[120px]"></div>
+        <div className="absolute w-1/3 h-1/4 top-1/3 right-0 rounded-full bg-blue-900/30 blur-[150px]"></div>
         <div className="absolute w-2/4 h-1/4 bottom-52 right-2/4 rounded-full bg-purple-500/20 blur-[100px]"></div>
       </div>
       
@@ -143,7 +163,15 @@ const HowItWorksSection = () => {
         </div>
 
         {/* Part 2 - Scroll Cards */}
-        <div className="relative">
+        <div className="relative mt-32">
+          {/* Background effects for card section */}
+          <div className="absolute inset-0 overflow-hidden -z-10">
+            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-3/4 h-[400px] rounded-full bg-purple-900/30 blur-[150px]"></div>
+            <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#090538] to-transparent opacity-70"></div>
+            <div className="absolute w-full h-full bg-[url('/img/grid.png')] bg-repeat opacity-10"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-purple-500/30 to-transparent"></div>
+          </div>
+
           <motion.h1 
             className="text-4xl md:text-5xl xl:text-6xl mb-8 text-white text-center font-bold mt-20 sticky top-8 z-20 py-4 backdrop-blur-md"
             style={{fontFamily: 'Montserrat-Regular'}}
@@ -153,27 +181,20 @@ const HowItWorksSection = () => {
             </span> is made for you who 👇🏻
           </motion.h1>
           
-          {/* Scroll Cards Container */}
+          {/* Scroll Cards Container - Optimized */}
           <div 
             ref={container} 
-            className="relative min-h-[200vh] bg-transparent pt-[50px] scroll-smooth snap-y snap-mandatory"
+            className="relative min-h-[200vh] will-change-transform perspective-[1200px] overflow-visible"
+            style={{
+              scrollBehavior: 'smooth',
+            }}
           >
-            {stakeCards.map((card, i) => {
-              const targetScale = 1 - ((stakeCards.length - i) * 0.05);
-              return (
-                <ScrollCard
-                  key={i}
-                  i={i}
-                  title={card.title}
-                  description={card.description}
-                  icon={card.icon}
-                  progress={scrollYProgress}
-                  range={[i * 0.25, 1]}
-                  targetScale={targetScale}
-                  total={stakeCards.length}
-                />
-              );
-            })}
+            {renderCards}
+          </div>
+
+          {/* Bottom curves */}
+          <div className="absolute bottom-0 left-0 w-full h-[100px] overflow-hidden -z-10">
+            <div className="absolute bottom-0 left-0 w-full h-[200px] rounded-[50%] bg-[#090538]/70 translate-y-1/2"></div>
           </div>
         </div>
       </div>

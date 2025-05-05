@@ -12,9 +12,9 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <HeroSection />
-      <section id="partners" className=" min-h-screen scroll-mt-24">
+      {/* <section id="partners" className=" min-h-screen scroll-mt-24">
         <PartnershipSection />
-      </section>
+      </section> */}
       <section id="how-it-works" className=" min-h-screen">
         <HowItWorksSection />
       </section>
