@@ -5,7 +5,7 @@ import GlowButton from '../GlowButton';
 
 const CTASection = () => {
   return (
-    <section className="py-12 md:py-24 shadow-blue-900/10 shadow-xl  bg-gradient-to-b from-[#060421] via-[#150b39] to-[#060421]">
+    <section className="py-12 md:py-24 shadow-blue-900/10 shadow-xl  bg-gradient-to-b from-[#030213] via-[#150b39] to-[#030213]">
       <div className="container mx-auto px-4">
         <div className="mx-auto text-center text-white">
           <div className="flex justify-center mb-6 md:mb-8">

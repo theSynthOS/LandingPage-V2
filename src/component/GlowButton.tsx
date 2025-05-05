@@ -18,7 +18,7 @@ const GlowButton: React.FC<GlowButtonProps> = ({ children, onClick, className = 
         <span className="absolute inset-0 overflow-hidden rounded-lg">
           <span className="absolute inset-0 rounded-lg bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(168,85,247,0.4)_0%,rgba(168,85,247,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
         </span>
-        <div className="relative flex space-x-2 items-center z-10 rounded-lg backdrop-blur-md bg-[#060421]/30 py-2 px-6 ring-1 ring-purple-500/20">
+        <div className="relative flex space-x-2 items-center z-10 rounded-lg backdrop-blur-md bg-[#030213]/30 py-2 px-6 ring-1 ring-purple-500/20">
           <span className="relative z-20 font-medium">
             {children}    
           </span>

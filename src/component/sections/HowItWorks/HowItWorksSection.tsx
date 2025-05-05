@@ -61,17 +61,17 @@ const HowItWorksSection = () => {
   }, [scrollYProgress]); // Only re-compute when scrollYProgress changes
 
   return (
-    <section id="how-it-works" className="scroll-mt-24 relative min-h-screen py-16 overscroll-none">
+    <section id="how-it-works" className="scroll-mt-24 relative min-h-screen pt-16 overscroll-none">
       {/* Background gradient */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[#060421]"></div>
-        <div className="absolute w-full h-full bg-gradient-to-b from-[#060421] via-[#150b39] to-[#060421]"></div>
+        <div className="absolute inset-0 bg-[#030213]"></div>
+        <div className="absolute w-full h-full bg-gradient-to-b from-[#030213] via-purple-900/30  via-[#150b39] via-[#150b39] via-[#030213] via-[#030213] to-[#030213]"></div>
         <div className="absolute w-1/2 h-screen top-1/3 left-1/4 rounded-full bg-purple-100/10 blur-[120px]"></div>
         <div className="absolute w-1/3 h-1/4 top-1/3 right-0 rounded-full bg-blue-900/30 blur-[150px]"></div>
         <div className="absolute w-2/4 h-1/4 bottom-52 right-2/4 rounded-full bg-purple-500/20 blur-[100px]"></div>
       </div>
       
-      <div className="container mx-auto px-4 py-4 relative z-10">
+      <div className="  relative z-10 ">
         {/* Toggle Switch */}
         <div className="flex justify-center items-center mb-12">
           <div className="backdrop-blur-sm border border-purple-400/50 rounded-full py-2 px-4 md:px-10 inline-flex items-center shadow-sm shadow-purple-400">
@@ -118,6 +118,7 @@ const HowItWorksSection = () => {
         </div>
         
         {/* Main Title - Conditional based on toggle state */}
+        <div>
         <h1 className="text-4xl md:text-5xl lg:text-6xl mb-8 text-white text-center font-bold" style={{fontFamily: 'Montserrat-Regular'}}>
           {isProtocol ? (
             <>Build Your <span className="text-white" style={{ textShadow: '0 0 10px white, 0 0 40px yellow, 0 0 30px orange' }}>Agent</span> Stack</>
@@ -125,6 +126,7 @@ const HowItWorksSection = () => {
             <>DeFi made <span className="text-white" style={{ textShadow: '0 0 10px white, 0 0 40px yellow, 0 0 30px orange' }}>conversational</span></>
           )}
         </h1>
+        </div>
         
         {/* Subtext - Conditional based on toggle state */}
         <p className="text-white/80 text-xl md:text-2xl text-center mb-8 max-w-4xl mx-auto">
@@ -168,7 +170,7 @@ const HowItWorksSection = () => {
           <div className="absolute inset-0 overflow-hidden -z-10">
             <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-3/4 h-[400px] rounded-full bg-purple-900/30 blur-[150px]"></div>
             <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#090538] to-transparent opacity-70"></div>
-            <div className="absolute w-full h-full bg-[url('/img/grid.png')] bg-repeat opacity-10"></div>
+            <div className="absolute w-full h-full  bg-repeat opacity-10"></div>
             <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-purple-500/30 to-transparent"></div>
           </div>
 
@@ -180,11 +182,11 @@ const HowItWorksSection = () => {
               SynthOS
             </span> is made for you who 👇🏻
           </motion.h1>
-          
+            
           {/* Scroll Cards Container - Optimized */}
           <div 
             ref={container} 
-            className="relative min-h-[200vh] will-change-transform perspective-[1200px] overflow-visible"
+            className="relative min-h-[200vh] w-full will-change-transform perspective-[1200px] overflow-visible"
             style={{
               scrollBehavior: 'smooth',
             }}
@@ -192,10 +194,7 @@ const HowItWorksSection = () => {
             {renderCards}
           </div>
 
-          {/* Bottom curves */}
-          <div className="absolute bottom-0 left-0 w-full h-[100px] overflow-hidden -z-10">
-            <div className="absolute bottom-0 left-0 w-full h-[200px] rounded-[50%] bg-[#090538]/70 translate-y-1/2"></div>
-          </div>
+          
         </div>
       </div>
     </section>

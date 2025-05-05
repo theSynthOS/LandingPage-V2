@@ -67,7 +67,7 @@ const MobileNav = () => {
               <source src="/bg-heroSection-base.mp4" type="video/mp4" />
             </video>
             {/* Dark overlay with blur for better readability */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#060421]/30 to-[#150b39]/30 backdrop-blur-md"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-[#030213]/30 to-[#150b39]/30 backdrop-blur-md"></div>
           </div>
           
           {/* Content container - make everything relative to be above the video */}
