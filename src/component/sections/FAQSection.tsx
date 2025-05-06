@@ -46,8 +46,8 @@ const FAQSection = () => {
     <section className="py-20 bg-black text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-[56px] md:text-[80px] font-light tracking-wide text-center text-gray-200 leading-none" style={{letterSpacing: '0.04em'}}>ANY QUESTION<span className="font-thin">?</span></h2>
-          <div className="mt-1 text-[56px] md:text-[80px] font-light uppercase text-[#F1F1F1]" style={{
+          <h2 className="text-[32px] md:text-[56px] lg:text-[80px] font-light tracking-wide text-center text-gray-200 leading-none" style={{letterSpacing: '0.04em'}}>ANY QUESTION<span className="font-thin">?</span></h2>
+          <div className="mt-1 text-[32px] md:text-[56px] lg:text-[80px] font-light uppercase text-[#F1F1F1]" style={{
             textShadow: '0 0 16px #ffe066, 0 0 32px #ffe066, 0 0 8px #ffe066',
             letterSpacing: '0.04em',
             lineHeight: 1.1
@@ -55,7 +55,7 @@ const FAQSection = () => {
         </div>
         <div className="flex flex-col md:flex-row mx-auto gap-8">
           {/* Categories: Top on mobile, left on desktop */}
-          <div className="w-full md:w-1/5 mb-6 md:mb-0">
+          <div className="w-full md:w-2/5 lg:w-1/5 mb-6 md:mb-0">
             <ul className="flex md:flex-col flex-row gap-2 md:gap-3 overflow-x-auto md:overflow-visible pb-2 md:pb-0 -mx-2 md:mx-0 md:border-l border-gray-700 md:pl-6">
               {categories.map((cat) => (
                 <li key={cat} className="flex-shrink-0 w-auto md:w-full">
@@ -77,7 +77,7 @@ const FAQSection = () => {
             </ul>
           </div>
           {/* Questions: Bottom on mobile, right on desktop */}
-          <div className="w-full md:w-4/5 border-b border-gray-700">
+          <div className="w-full md:w-3/5 lg:w-4/5 border-b border-gray-700">
             {faqs.map((faq, index) => (
               <div key={index}>
                 <button
