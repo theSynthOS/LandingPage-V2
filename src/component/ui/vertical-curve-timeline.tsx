@@ -133,6 +133,7 @@ export const VerticalCurveTimeline = ({ milestones }: { milestones: TimelineMile
               stroke="rgba(255, 255, 255, 0.1)"
               strokeWidth="4"
               fill="none"
+              style={{ zIndex: 1 }}
             />
             
             {/* Animated path */}
@@ -144,9 +145,10 @@ export const VerticalCurveTimeline = ({ milestones }: { milestones: TimelineMile
               fill="none"
               strokeDasharray={pathLength}
               style={{
-                strokeDashoffset: dashOffset
+                strokeDashoffset: dashOffset,
+                zIndex: 1
               }}
-              transition={{ duration: 0.2 }} // Added faster transition
+              transition={{ duration: 0.2 }}
             />
             
             {/* Gradient definition */}
@@ -158,11 +160,25 @@ export const VerticalCurveTimeline = ({ milestones }: { milestones: TimelineMile
               </linearGradient>
             </defs>
             
+            {/* Following dot */}
+            {pathLength > 0 && (
+              <motion.path
+                d={pathString}
+                fill="none"
+                stroke="url(#gradientColors)"
+                strokeWidth="6"
+                strokeDasharray={pathLength}
+                strokeDashoffset={dashOffset}
+                style={{ zIndex: 1 }}
+                transition={{ duration: 0.1 }}
+              />
+            )}
+            
             {/* Milestone dots */}
             {milestones.map((milestone, i) => {
               const isActive = i <= activeIndex;
-              const spacing = 1200 / (milestones.length - 1); // Reduced spacing to match path
-              const y = 180 + (i * spacing); // Consistent y position
+              const spacing = 1200 / (milestones.length - 1);
+              const y = 180 + (i * spacing);
               const x = i % 2 === 0 ? 600 : 800;
               
               return (
@@ -172,28 +188,15 @@ export const VerticalCurveTimeline = ({ milestones }: { milestones: TimelineMile
                   cy={y}
                   r="10"
                   fill={isActive ? "#ffe066" : "#333"}
-                  className="transition-all duration-200" // Changed from 300 to 200ms for faster transition
+                  className="transition-all duration-200"
                   style={{
+                    zIndex: 2,
                     filter: isActive ? "drop-shadow(0 0 16px #ffe066) drop-shadow(0 0 32px #ffe066)" : "none"
                   }}
                 />
               );
             })}
-            
-            {/* Following dot */}
-            {pathLength > 0 && (
-              <motion.circle
-                r="12"
-                fill="#ffe066"
-                style={{
-                  offsetPath: `path('${pathString}')`,
-                  offsetDistance: offsetDistance,
-                  filter: "drop-shadow(0 0 16px #ffe066) drop-shadow(0 0 32px #ffe066)",
-                }}
-                transition={{ duration: 0.1 }} // Added faster transition
-              />
-            )}
-          </svg>
+          </svg> 
         </div>
         
         {/* Desktop View - Content Boxes */}
