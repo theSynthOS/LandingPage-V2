@@ -67,8 +67,8 @@ const RoadmapSection = () => {
           <div 
             className="text-4xl md:text-5xl xl:text-6xl font-bold tracking-wider uppercase mb-10 text-white"
             style={{
-                letterSpacing: '0.08em', 
-                fontFamily: 'TT Travels Next Trial Variable, sans-serif',
+              letterSpacing: '0.08em', 
+              fontFamily: 'Montserrat-Regular',
               textShadow: '0 0 1px blue, 0 0 20px yellow, 0 0 10px orange'
             }}
           >
