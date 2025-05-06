@@ -46,9 +46,10 @@ const FAQSection = () => {
     <section className="py-20 xl:py-40 bg-black text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-[32px] md:text-[56px] lg:text-[80px] font-light tracking-wide text-center text-gray-200 leading-none" style={{letterSpacing: '0.04em'}}>ANY QUESTION<span className="font-thin">?</span></h2>
-          <div className="mt-1 text-[32px] md:text-[56px] lg:text-[80px] font-light uppercase text-[#F1F1F1]" style={{
+          <h2 className="text-4xl md:text-5xl xl:text-6xl font-bold tracking-wide text-center text-gray-200 leading-none" style={{letterSpacing: '0.04em', fontFamily: 'Montserrat-Regular'}}>ANY QUESTION<span className="font-thin">?</span></h2>
+          <div className="mt-1 text-4xl md:text-5xl xl:text-6xl font-bold uppercase text-[#F1F1F1]" style={{
             textShadow: '0 0 16px #ffe066, 0 0 32px #ffe066, 0 0 8px #ffe066',
+            fontFamily: 'Montserrat-Regular',
             letterSpacing: '0.04em',
             lineHeight: 1.1
           }}>WE GOT YOU</div>

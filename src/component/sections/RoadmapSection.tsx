@@ -56,19 +56,19 @@ const RoadmapSection = () => {
       <div className="container mx-auto px-4 relative z-10 max-w-[80rem]">
         <div className="text-center mb-24">
           <h2 
-            className="text-5xl md:text-7xl font-normal tracking-wider uppercase mb-2 bg-gradient-to-b from-gray-100 via-gray-300 to-gray-500 bg-clip-text text-transparent" 
+            className="text-4xl md:text-5xl xl:text-6xl font-bold tracking-wider uppercase mb-2 bg-gradient-to-b from-gray-100 via-gray-300 to-gray-500 bg-clip-text text-transparent" 
             style={{ 
               letterSpacing: '0.08em',
-              fontFamily: 'TT Travels Next Trial Variable, sans-serif'
+              fontFamily: 'Montserrat-Regular'
             }}
           >
               HOW IT STARTED
           </h2>
           <div 
-            className="text-5xl md:text-7xl font-normal tracking-wider uppercase mb-10 text-white"
+            className="text-4xl md:text-5xl xl:text-6xl font-bold tracking-wider uppercase mb-10 text-white"
             style={{
-              letterSpacing: '0.08em', 
-              fontFamily: 'TT Travels Next Trial Variable, sans-serif',
+                letterSpacing: '0.08em', 
+                fontFamily: 'TT Travels Next Trial Variable, sans-serif',
               textShadow: '0 0 1px blue, 0 0 20px yellow, 0 0 10px orange'
             }}
           >
