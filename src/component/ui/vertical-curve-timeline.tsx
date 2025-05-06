@@ -75,13 +75,13 @@ export const VerticalCurveTimeline = ({ milestones }: { milestones: TimelineMile
   // Desktop timeline scroll tracking with adjusted offsets for faster progression
   const { scrollYProgress: desktopScrollProgress } = useScroll({
     target: containerRef,
-    offset: ["start 95%", "end 40%"] // Changed from "start 85%", "end center" for faster progression
+    offset: ["start 60%", "end 60%"] // Changed from "start 85%", "end center" for faster progression
   });
   
   // Mobile timeline scroll tracking with adjusted offsets
   const { scrollYProgress: mobileScrollProgress } = useScroll({
     target: mobileContainerRef,
-    offset: ["start 98%", "end 30%"] // Changed from "start 95%", "end 20%" for faster progression
+    offset: ["start 60%", "end 60%"] // Changed from "start 95%", "end 20%" for faster progression
   });
   
   // Transform scrollYProgress to pathLength for desktop
@@ -118,7 +118,7 @@ export const VerticalCurveTimeline = ({ milestones }: { milestones: TimelineMile
   return (
     <div className="relative">
       {/* Desktop View - Curved Timeline */}
-      <div className="relative min-h-[1400px] pb-[40vh] hidden md:block" ref={containerRef}> {/* Reduced height from 1800px to 1400px, pb from 50vh to 40vh */}
+      <div className="relative min-h-[1400px] hidden md:block" ref={containerRef}> {/* Reduced height from 1800px to 1400px, pb from 50vh to 40vh */}
         <div className="absolute inset-0 w-full h-full pointer-events-none">
           <svg
             className="w-full h-full"

@@ -44,7 +44,7 @@ const timelineMilestones = [
 const RoadmapSection = () => {
   return (
     <section className="relative pt-16 bg-[#0A0B14] overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 max-w-[80rem]">
         <div className="text-center mb-24">
           <h2 
             className="text-5xl md:text-7xl font-normal tracking-wider uppercase mb-2 bg-gradient-to-b from-gray-100 via-gray-300 to-gray-500 bg-clip-text text-transparent" 

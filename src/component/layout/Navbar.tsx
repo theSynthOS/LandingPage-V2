@@ -197,7 +197,7 @@ const Navbar = () => {
             surfaceScale="0.6"
             specularConstant="1.5"
             specularExponent="90"
-            lighting-color={config.spotlight.light}
+            lightingColor={config.spotlight.light}
           >
             <fePointLight ref={spotlightRef} x="50" y="60" z="180"></fePointLight>
           </feSpecularLighting>
@@ -226,7 +226,7 @@ const Navbar = () => {
             surfaceScale="0.5"
             specularConstant="15"
             specularExponent="55"
-            lighting-color={config.ambience.light}
+            lightingColor={config.ambience.light}
           >
             <fePointLight x="120" y="-100" z="180"></fePointLight>
           </feSpecularLighting>
