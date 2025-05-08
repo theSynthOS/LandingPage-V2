@@ -12,6 +12,7 @@ interface NavLinkProps {
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState(true);
   const navRef = useRef<HTMLDivElement>(null);
   const spotlightRef = useRef<SVGFEPointLightElement>(null);
   
@@ -103,6 +104,14 @@ const Navbar = () => {
         setActiveSection(currentSection);
         updateSpotlight(currentSection);
       }
+      
+      // Check if FAQ section is in view to hide navbar
+      const faqSection = document.getElementById('faq');
+      if (faqSection) {
+        const faqRect = faqSection.getBoundingClientRect();
+        // Hide navbar when we've scrolled past the FAQ section (when its top is above the viewport)
+        setIsVisible(faqRect.top > 0);
+      }
     };
     
     // Call on initial render
@@ -166,7 +175,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="fixed bottom-0 left-0 w-full z-50 mb-6 md:block hidden">
+      <div className={`fixed bottom-0 left-0 w-full z-50 mb-6 md:block hidden transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
       <div className="container mx-auto px-4">
           <nav ref={navRef} className="relative py-3 px-4 bg-[#402D86B2]/30 backdrop-blur-lg rounded-md max-w-4xl mx-auto border-2 border-[#3C229C]/100">
             {/* Hidden duplicate content for lighting effect */}
@@ -210,7 +219,7 @@ const Navbar = () => {
             surfaceScale="0.6"
             specularConstant="1.5"
             specularExponent="90"
-            lightingColor={config.spotlight.light}
+            lighting-color={config.spotlight.light}
           >
             <fePointLight ref={spotlightRef} x="50" y="60" z="180"></fePointLight>
           </feSpecularLighting>
@@ -239,7 +248,7 @@ const Navbar = () => {
             surfaceScale="0.5"
             specularConstant="15"
             specularExponent="55"
-            lightingColor={config.ambience.light}
+            lighting-color={config.ambience.light}
           >
             <fePointLight x="120" y="-100" z="180"></fePointLight>
           </feSpecularLighting>
