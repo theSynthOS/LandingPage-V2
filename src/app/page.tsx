@@ -11,12 +11,13 @@ import Navbar from '../component/layout/Navbar';
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <HeroSection />
+      <HowItWorksSection />
+      
       {/* <section id="partners" className=" min-h-screen scroll-mt-24">
         <PartnershipSection />
       </section> */}
       <section id="how-it-works" className=" min-h-screen">
-        <HowItWorksSection />
+        <HeroSection />
       </section>
       <section id="roadmap" className="scroll-mt-24">
         <RoadmapSection />
