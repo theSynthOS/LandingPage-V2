@@ -12,10 +12,7 @@ const HeroSection = () => {
        </div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto text-center mt-40 md:mt-0">
-          <h1 className="text-[3rem] md:text-[4rem] lg:text-[5rem] xl:text-[6rem] font-bold mb-6 bg-clip-text text-white uppercase" style={{fontFamily: 'Montserrat-LightItalic'}}>Simplifiying  <span className="text-white" style={{ textShadow: '0 0 10px white, 0 0 40px yellow, 0 0 30px orange' }}>DeFi </span> Access</h1>
-          {/* <h1 className="text-[3rem] md:text-[4rem] lg:text-[5rem] xl:text-[6rem] font-bold mb-6 bg-clip-text text-white uppercase" style={{fontFamily: 'Montserrat-LightItalic'}}>
-            <span className="text-white" style={{ textShadow: '0 0 10px white, 0 0 40px yellow, 0 0 30px orange' }}>Defi </span> Access
-          </h1> */}
+          <h1 className="text-[3rem] md:text-[4rem] lg:text-[5rem] xl:text-[5rem] font-bold mb-6 bg-clip-text text-white uppercase" style={{fontFamily: 'Montserrat-LightItalic'}}>  <span className="text-white" style={{ textShadow: '0 0 10px white, 0 0 40px yellow, 0 0 30px orange' }}>One Stop </span>  Defi Access That Make Your Money Grow</h1>
           <p className="font-montserrat text-xl md:text-2xl text-white mb-8 mt-14">
             SynthOS makes DeFi plug-and-play. Let users express intent, and let agents do the rest.
           </p>

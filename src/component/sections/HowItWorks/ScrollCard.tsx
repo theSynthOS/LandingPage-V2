@@ -51,7 +51,7 @@ const ScrollCard = ({ i, title, description, icon, progress, range, targetScale,
           filter: 'drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3))',
           willChange: 'transform, opacity',
         }} 
-        className="flex flex-col relative h-[600px] md:h-[500px] md:w-[70%] lg:w-[50%] rounded-[25px] p-[20px] md:p-[50px] origin-center bg-gradient-to-br from-[#4E37FF]/50 via-[#09092F]/100 to-[#09092F]/100 backdrop-blur-2xl border border-purple-500/30 overflow-hidden"
+        className="flex flex-col relative h-[600px] md:h-[500px] md:w-[70%] lg:w-[50%] rounded-[25px] p-[20px] md:p-[50px] origin-center bg-gradient-to-br bg-purple-800/50  backdrop-blur-2xl border border-purple-500/30 overflow-hidden"
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ 
