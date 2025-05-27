@@ -1,18 +1,28 @@
 import Image from "next/image";
 export const stakeCards = [
     {
-      title: "Think in outcomes, not code",
-      description: "Whether you're a protocol setting up agent logic or a user making a move, SynthOS turns goals into actions. just pick what you want, the agent get it done",
+      title: "Curated APY Opportunities",
+      description: "SynthOS aggregates thousands of DeFi yield strategies and presents only those that fit your preferences.",
       icon: <Image 
-      src="/2.png"
+      src="/3.png"
       alt="icon"
       height={900}
       width={900}
       className="w-24 h-24"/>
     },
     {
-      title: "Want tools that just work",
-      description: "Users don’t need to learn how things work — they just interact. Protocols can plug in agent workflows instantly",
+      title: "Personalized by AI, Not by Hype",
+      description: "Your wallet activity and risk appetite shape every recommendation. Our AI adapts to your goals, ensuring your strategies are always aligned and never generic.",
+      icon: <Image 
+      src="/3.png"
+      alt="icon"
+      height={900}
+      width={900}
+      className="w-24 h-24"/>
+    },
+    {
+      title: "Zero Research Required",
+      description: "No more endless research or decision fatigue, just actionable plans that make sense for you.",
       icon: <Image 
       src="/1.png"
       alt="icon"
@@ -21,10 +31,10 @@ export const stakeCards = [
       className="w-24 h-24"/>
     },
     {
-      title: "Move fast without the noise",
-      description: "It’s fast to set up, easy to use, and scales with you. Protocols can go live in hours. Users can start in seconds",
+      title: "Total Control, Non-Custodial",
+      description: "Keep full control of your assets at all times. We suggests, you execute, no custody.",
       icon: <Image 
-      src="/3.png"
+      src="/2.png"
       alt="icon"
       height={900}
       width={900}

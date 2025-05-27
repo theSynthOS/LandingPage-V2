@@ -42,7 +42,7 @@ const ScrollCard = ({ i, title, description, icon, progress, range, targetScale,
   return (
     <div 
       ref={container} 
-      className="h-screen flex items-center justify-center sticky top-0 scroll-smooth will-change-transform"
+      className="h-screen flex items-center justify-center sticky top-0 scroll-smooth will-change-transform "
     >
       <motion.div 
         style={{ 
@@ -51,7 +51,7 @@ const ScrollCard = ({ i, title, description, icon, progress, range, targetScale,
           filter: 'drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3))',
           willChange: 'transform, opacity',
         }} 
-        className="flex flex-col relative h-[600px] md:h-[500px] md:w-[70%] lg:w-[50%] rounded-[25px] p-[20px] md:p-[50px] origin-center bg-gradient-to-br bg-purple-800/50  backdrop-blur-2xl border border-purple-500/30 overflow-hidden"
+        className="flex flex-col relative h-[500px] md:h-[500px] md:w-[70%] lg:w-[50%] rounded-[25px] p-[20px] md:p-[50px] origin-center bg-gradient-to-br bg-purple-800/50  backdrop-blur-2xl border border-purple-500/30 overflow-hidden "
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ 
@@ -61,7 +61,7 @@ const ScrollCard = ({ i, title, description, icon, progress, range, targetScale,
         layoutId={`card-${i}`}
       >
         {/* Card content - Optimize with memo or simplified DOM */}
-        <div className="flex h-full mt-[10px] gap-[50px] items-center translate-z-0">
+        <div className="flex h-full mt-[10px] md:mt-[5px] gap-[50px] items-center translate-z-0">
           <div className="w-full text-center">
             <div className="flex justify-center mb-2">{icon}</div>
             <h2 

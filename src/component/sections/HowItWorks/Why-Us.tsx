@@ -5,46 +5,15 @@ import { useTransform, motion, useScroll } from 'framer-motion';
 import ScrollCard from './ScrollCard';
 import { stakeCards } from './CardText';
 
-const HowItWorksSection = () => {
-  const [isProtocol, setIsProtocol] = useState(false);
-  const [selectedFeature, setSelectedFeature] = useState(0);
+const WhyUsSection = () => {
   const container = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   
-  // Toggle switch handler
-  const handleToggle = () => {
-    setIsProtocol(!isProtocol);
-    setSelectedFeature(0); // Reset selected feature when switching modes
-  };
-
-  // Features based on toggle state
-  const features = isProtocol 
-    ? ["Context-Aware Agents", "AgentKit SDK"] 
-    : ["Simple", "Advanced"];
-
-  // Video content based on selected feature and toggle state
-  const getVideoContent = () => {
-    if (isProtocol) {
-      return selectedFeature === 0 
-        ? "Video content for Context-Aware Agents (Protocol)" 
-        : "Video content for AgentKit SDK (Protocol)";
-    } else {
-      return selectedFeature === 0 
-        ? "Video content for Simple mode (User)" 
-        : "Video content for Advanced mode (User)";
-    }
-  };
 
   // Scroll progress for cards with optimized performance
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ['start start', 'end end'],
-  });
-  
-  // Scroll progress for controlling the title's sticky behavior
-  const { scrollYProgress: sectionScrollProgress } = useScroll({
-    target: sectionRef,
     offset: ['start start', 'end end'],
   });
   
@@ -94,7 +63,7 @@ const HowItWorksSection = () => {
   }, [scrollYProgress]); // Only re-compute when scrollYProgress changes
 
   return (
-    <section id="how-it-works" className="scroll-mt-24 relative min-h-screen overscroll-none" ref={sectionRef}>
+    <section id="how-it-works" className="scroll-mt-24 relative overscroll-none" ref={sectionRef}>
       {/* Background gradient */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-[#030213]"></div>
@@ -116,24 +85,23 @@ const HowItWorksSection = () => {
             <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-purple-500/30 to-transparent"></div>
           </div>
 
-          <motion.h1 
-            ref={titleRef}
-            className="text-4xl md:text-5xl xl:text-6xl mb-8 text-white text-center font-bold z-20 py-4 backdrop-blur-md"
-            style={{
-              fontFamily: 'Montserrat-Regular',
-              position: 'sticky',
-              top: '8px'
+        <h2 
+            className="text-center text-4xl md:text-5xl xl:text-6xl font-bold tracking-wider uppercase mb-2 bg-gradient-to-b from-gray-100 via-gray-300 to-gray-500 bg-clip-text text-transparent" 
+            style={{ 
+              letterSpacing: '0.08em',
+              fontFamily: 'Montserrat-Regular'
             }}
           >
-            <span className="text-white" style={{ textShadow: '0 0 10px white, 0 0 40px yellow, 0 0 30px orange' }}>
-              SynthOS
-            </span> is made for you who 👇🏻
-          </motion.h1>
+              Why{" "}
+              <span className="text-white" style={{ textShadow: '0 0 10px white, 0 0 40px yellow, 0 0 30px orange' }}>
+                SynthOS
+              </span>
+          </h2>
             
           {/* Scroll Cards Container - Optimized */}
           <div 
             ref={container} 
-            className="relative min-h-[200vh] w-full will-change-transform perspective-[1200px] overflow-visible"
+            className="relative min-h-[200vh] w-full will-change-transform perspective-[1200px] overflow-visible "
             style={{
               scrollBehavior: 'smooth',
             }}
@@ -146,4 +114,4 @@ const HowItWorksSection = () => {
   );
 };
 
-export default HowItWorksSection; 
+export default WhyUsSection; 
