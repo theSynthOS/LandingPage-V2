@@ -95,9 +95,9 @@ const MobileNav = () => {
             {/* Navigation Links - now in a scrollable container that doesn't affect the main page */}
             <div className="flex-1 flex flex-col justify-center items-start px-12 space-y-8 overflow-y-auto py-8">
               <a href="#partners" onClick={(e) => handleClick(e, 'partners')} className="text-[2rem] text-white/70 hover:text-white transition-colors">Partners</a>
-              <a href="#how-it-works" onClick={(e) => handleClick(e, 'how-it-works')} className="text-[2rem] text-white/70 hover:text-white transition-colors">How It Works</a>
+              <a href="#why-us" onClick={(e) => handleClick(e, 'why-us')} className="text-[2rem] text-white/70 hover:text-white transition-colors">Why Us</a>
               <a href="#roadmap" onClick={(e) => handleClick(e, 'roadmap')} className="text-[2rem] text-white/70 hover:text-white transition-colors">Roadmap</a>
-              <a href="#our-team" onClick={(e) => handleClick(e, 'our-team')} className="text-[2rem] text-white/70 hover:text-white transition-colors">Our Team</a>
+              <a href="#how-it-works" onClick={(e) => handleClick(e, 'how-it-works')} className="text-[2rem] text-white/70 hover:text-white transition-colors">How It Works</a>
               <a href="#faq" onClick={(e) => handleClick(e, 'faq')} className="text-[2rem] text-white/70 hover:text-white transition-colors">FAQ</a>
             </div>
 

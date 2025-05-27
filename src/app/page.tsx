@@ -15,13 +15,13 @@ export default function Home() {
       <section id="partners" className="scroll-mt-24">
         <PartnershipSection />
       </section>
-      <section id="how-it-works" className=" ">
+      <section id="why-us" className=" ">
         <WhyUsSection />
       </section>
       <section id="roadmap" className="scroll-mt-24">
         <RoadmapSection />
       </section>
-      <section id="our-team" className="scroll-mt-24">
+      <section id="how-it-works" className="scroll-mt-24">
         <FlowSection />
       </section>
       <section id="faq" className=" scroll-mt-24">
