@@ -20,19 +20,10 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-end">
             <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-16 mb-8 md:mb-0">
               <div>
-                <h3 className="text-white text-md md:text-lg font-semibold mb-4">Company</h3>
-                <ul className="space-y-2">
-                  {footerLinks.company.map((link, index) => (
-                    <li key={index}>
-                      <a href={link.href} className="hover:text-white transition-colors">
-                        {link.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                
               </div>
               <div>
-                <h3 className="text-white text-md md:text-lg font-semibold mb-4">Resources</h3>
+                {/* <h3 className="text-white text-md md:text-lg font-semibold mb-4">Resources</h3>
                 <ul className="space-y-2">
                   {footerLinks.resources.map((link, index) => (
                     <li key={index}>
@@ -41,7 +32,7 @@ const Footer = () => {
                       </a>
                     </li>
                   ))}
-                </ul>
+                </ul> */}
               </div>
             </div>
           </div>

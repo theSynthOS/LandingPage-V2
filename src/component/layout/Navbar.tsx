@@ -74,13 +74,13 @@ const Navbar = () => {
   // Update active section based on scroll position
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['how-it-works', 'roadmap', 'our-team', 'faq']; //add 'partners', 
+      const sections = [ 'partners', 'how-it-works', 'roadmap', 'our-team', 'faq']; //add 'partners', 
       
       // Check if we're at the hero section (top of page)
       if (window.scrollY < 100) {
-        if (activeSection !== 'how-it-works') {
-          setActiveSection('how-it-works');
-          updateSpotlight('how-it-works');
+        if (activeSection !== 'partners') {
+          setActiveSection('partners');
+          updateSpotlight('partners');
         }
         return;
       }
@@ -161,8 +161,8 @@ const Navbar = () => {
     
     // Default to Partners if no section is selected yet
     if (!activeSection) {
-      setActiveSection('how-it-works');
-      updateSpotlight('how-it-works');
+      setActiveSection('partners');
+      updateSpotlight('partners');
     } else {
       updateSpotlight(activeSection);
     }
@@ -180,7 +180,7 @@ const Navbar = () => {
           <nav ref={navRef} className="relative py-3 px-4 bg-[#402D86B2]/30 backdrop-blur-lg rounded-md max-w-4xl mx-auto border-2 border-[#3C229C]/100">
             {/* Hidden duplicate content for lighting effect */}
             <ul aria-hidden="true" className="lit flex items-center p-0 m-0 list-none h-full justify-between text-transparent">
-              {/* <li className="px-5 py-2">Partners</li> */}
+              <li className="px-5 py-2">Partners</li>
               <li className="px-5 py-2">How It Works</li>
               <li className="px-5 py-2">Roadmap</li>
               <li className="px-5 py-2">Our Team</li>
@@ -189,9 +189,9 @@ const Navbar = () => {
             
             {/* Actual clickable content */}
             <ul className="content flex items-center p-0 m-0 list-none h-full justify-between relative font-bold">
-              {/* <li>
+              <li>
                 <NavLink href="#partners" isActive={activeSection === 'partners'} onClick={(e) => handleClick(e, 'partners')}>Partners</NavLink>
-              </li> */}
+              </li>
               <li>
                 <NavLink href="#how-it-works" isActive={activeSection === 'how-it-works'} onClick={(e) => handleClick(e, 'how-it-works')}>How It Works</NavLink>
               </li>
@@ -219,7 +219,7 @@ const Navbar = () => {
             surfaceScale="0.6"
             specularConstant="1.5"
             specularExponent="90"
-            lighting-color={config.spotlight.light}
+            lightingColor={config.spotlight.light}
           >
             <fePointLight ref={spotlightRef} x="50" y="60" z="180"></fePointLight>
           </feSpecularLighting>
@@ -248,7 +248,7 @@ const Navbar = () => {
             surfaceScale="0.5"
             specularConstant="15"
             specularExponent="55"
-            lighting-color={config.ambience.light}
+            lightingColor={config.ambience.light}
           >
             <fePointLight x="120" y="-100" z="180"></fePointLight>
           </feSpecularLighting>

@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SynthOS - No-code AI agents for DeFi",
-  description: "SynthOS makes DeFi plug-and-play. Deploy intelligent, verifiable agents.",
+  title: "SynthOS",
+  description: "Invest with confidence using personalized crypto yield plans.",
 };
 
 export default function RootLayout({
@@ -34,7 +34,7 @@ export default function RootLayout({
         <link rel="preload" href="/fonts/TT-Travels-Next-Trial-Medium.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/TT-Travels-Next-Trial-DemiBold.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-montserrat min-h-screen relative `}>
+      <body suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} antialiased font-montserrat relative`}>
         <Header />
         <main className="">
           {children}
