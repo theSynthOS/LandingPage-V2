@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SynthOS - No-code AI agents for DeFi",
-  description: "SynthOS makes DeFi plug-and-play. Deploy intelligent, verifiable agents.",
+  title: "SynthOS",
+  description: "Invest with confidence using personalized crypto yield plans.",
 };
 
 export default function RootLayout({

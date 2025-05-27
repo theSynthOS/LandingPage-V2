@@ -63,9 +63,10 @@ const WhyUsSection = () => {
   }, [scrollYProgress]); // Only re-compute when scrollYProgress changes
 
   return (
-    <section id="how-it-works" className="scroll-mt-24 relative overscroll-none" ref={sectionRef}>
+    <section id="how-it-works" className=" relative overscroll-none mt-24" ref={sectionRef}>
       {/* Background gradient */}
       <div className="absolute inset-0 overflow-hidden">
+      
         <div className="absolute inset-0 bg-[#030213]"></div>
         <div className="absolute w-full h-full bg-gradient-to-b from-[#030213] via-purple-900/20 via-[#150b39] via-[#150b39] via-[#030213] via-[#030213] to-[#030213]"></div>
         <div className="absolute w-1/2 h-screen top-1/3 left-1/4 rounded-full bg-purple-100/5 blur-[80px]"></div>
@@ -74,18 +75,13 @@ const WhyUsSection = () => {
       </div>
       
       <div className="relative z-10">
-
         {/* Part 2 - Scroll Cards */}
         <div className="relative px-3">
-          {/* Background effects for card section */}
-          <div className="absolute inset-0 overflow-hidden -z-10">
-            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-3/4 h-[400px] rounded-full bg-purple-900/30 blur-[150px]"></div>
-            <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#090538] to-transparent opacity-70"></div>
-            <div className="absolute w-full h-full bg-repeat opacity-10"></div>
-            <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-purple-500/30 to-transparent"></div>
-          </div>
-
-        <h2 
+          {/* Shadow gradient below the heading */}
+          <div className="absolute top-[5rem] left-1/2 -translate-x-1/4 w-[30%] md:w-[50%] h-[120px] rounded-[50%] bg-purple-500/20 blur-[60px] -z-10"></div>
+          <div className="absolute  left-1/2 -translate-x-1/2 w-[70%] md:w-[60%] h-[80px] rounded-[50%] bg-blue-400/10 blur-[50px] -z-10"></div>
+          
+          <h2 
             className="text-center text-4xl md:text-5xl xl:text-6xl font-bold tracking-wider uppercase mb-2 bg-gradient-to-b from-gray-100 via-gray-300 to-gray-500 bg-clip-text text-transparent" 
             style={{ 
               letterSpacing: '0.08em',
@@ -97,6 +93,7 @@ const WhyUsSection = () => {
                 SynthOS
               </span>
           </h2>
+          
             
           {/* Scroll Cards Container - Optimized */}
           <div 

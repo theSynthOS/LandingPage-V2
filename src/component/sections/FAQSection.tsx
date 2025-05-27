@@ -4,31 +4,16 @@ import React, { useState } from 'react';
 
 const categories = [
   'Getting Started',
-  'Using Agents',
-  'SDK & Integration',
-  'User Experience',
 ];
 
 const categoryFaqs: Record<string, { question: string; answer: string }[]> = {
   'Getting Started': [
-    { question: 'What is SynthOS in one sentence?', answer: 'Dummy answer for signing up.' },
-    { question: 'Do I need to know smart contracts to use this?', answer: 'Dummy answer for free trial.' },
-    { question: 'Who is SynthOS built for — protocols or users?', answer: 'Dummy answer for requirements.' },
-  ],
-  'Using Agents': [
-    { question: 'What are SynthOS agents, exactly?', answer: 'Dummy answer for creating agent.' },
-    { question: 'How does agent selection work in simple mode?', answer: 'Dummy answer for customizing agents.' },
-    { question: 'Can I customize or build my own agent?', answer: 'Dummy answer for monitoring.' },
-  ],
-  'SDK & Integration': [
-    { question: 'How do I integrate SynthOS with my protocol?', answer: 'Dummy answer for SDK.' },
-    { question: 'What chains does AgentKit currently support?', answer: 'Dummy answer for integration.' },
-    { question: 'How long does it take to go live?', answer: 'Dummy answer for languages.' },
-  ],
-  'User Experience': [
-    { question: 'What’s the difference between simple and advanced mode?', answer: 'Dummy answer for feedback.' },
-    { question: 'Can I test SynthOS before deploying on mainnet?', answer: 'Dummy answer for UI customization.' },
-    { question: 'How do users know they’re getting the best strategy?', answer: 'Dummy answer for dark mode.' },
+    { question: 'What is SynthOS in one sentence?', answer: 'SynthOS is a DeFi aggregator that uses AI to deliver personalized crypto yield plans, so you can invest instantly.' },
+    { question: 'What’s the main benefit of using SynthOS?', answer: 'You save time and avoid information overload—SynthOS brings you the best, most relevant yield plans in one place, tailored just for you.' },
+    { question: 'How does SynthOS personalize my investment options?', answer: 'Our AI analyzes your wallet activity and preferences to recommend yield strategies that actually fit your goals and risk level.' },
+    { question: 'Do I have to give up control of my assets?', answer: 'Nope! SynthOS is non-custodial, so you always retain control. We only suggest options you choose when and where to invest. We are not holding users money.' },
+    { question: 'Is SynthOS only for experienced DeFi users?', answer: 'Not at all. Whether you’re a DeFi pro or just getting started, SynthOS simplifies your choices and gives you a clear path to earning yield.' },
+    { question: 'How quickly can I start investing with SynthOS?', answer: 'As soon as you connect your wallet, you’ll see instant recommendations and can act right away, no lengthy setup or learning curve.' },
   ],
 };
 
@@ -43,7 +28,7 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="py-20 xl:py-40 bg-black text-white">
+    <section className="py-20 xl:py-40 text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl xl:text-6xl font-bold tracking-wide text-center text-gray-200 leading-none" style={{letterSpacing: '0.04em', fontFamily: 'Montserrat-Regular'}}>ANY QUESTION<span className="font-thin">?</span></h2>
@@ -63,7 +48,7 @@ const FAQSection = () => {
                   <button
                     className={`w-auto md:w-full whitespace-nowrap text-center md:text-left py-3 px-4 rounded-lg transition-colors ${
                       selectedCategory === cat 
-                        ? 'bg-[#ffe066] text-gray-900 font-bold' 
+                        ? 'bg-purple-600 text-white font-bold' 
                         : 'bg-gray-800 text-gray-300 hover:bg-[#ffe066] hover:text-gray-900'
                     }`}
                     onClick={() => {

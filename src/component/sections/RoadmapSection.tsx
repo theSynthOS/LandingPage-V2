@@ -12,32 +12,26 @@ const timelineMilestones = [
   {
     date: '2025_MAY',
     title: 'Early Collaborations',
-    description: 'Partnering with protocols and kicking off internal agent demos — starting on Scroll.',
+    description: 'Enhancing integrations, building core app features, and starting key collaborations with protocols.',
     align: 'right' as const,
   },
-  {
+   {
     date: '2025_JUNE',
-    title: 'Innovation & Interoperability',
-    description: 'Expanding agent capabilities with cross-chain logic and new use cases, rooted in Scroll.',
+    title: 'SynthOS Testnet Launch',
+    description: 'Opening up for early user testing—gathering real-world feedback .',
     align: 'left' as const,
   },
   {
     date: '2025_JULY',
-    title: 'Utility Expansion',
-    description: 'Going live: soft-launching agents into live DeFi apps to boost liquidity access and automated yield flows.',
+    title: 'SynthOS Mainnet Launch',
+    description: 'Official release of SynthOS Mainnet: live on mainnet with core features and yield agent support.',
     align: 'right' as const,
   },
   {
     date: '2025_AUGUST',
     title: 'Growth & Community',
-    description: 'Welcoming early contributors, launching educational pushes, and growing through ambassador networks.',
+    description: 'Welcoming early contributors, launching educational campaigns, and expanding through ambassador programs.',
     align: 'left' as const,
-  },
-  {
-    date: '2025_SEPTEMBER',
-    title: 'The Next Chapter',
-    description: "Wrapping the Open Economy phase. Prepping for the next evolution in agent-native DeFi.",
-    align: 'right' as const,
   },
 ];
 

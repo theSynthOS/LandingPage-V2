@@ -30,8 +30,16 @@ const FlowSection = () => {
   ];
 
   return (
-    <section className="py-12 md:py-20 ">
-      <div className="container mx-auto px-4">
+    <section className="py-12 md:py-20 relative">
+      {/* Background gradient and effects */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 bg-[#030213]"></div>
+        <div className="absolute w-full h-full bg-gradient-to-b from-[#030213] via-purple-900/20 via-[#150b39] via-[#150b39] via-[#030213] to-[#030213]"></div>
+        <div className="absolute w-1/3 h-1/4 top-1/3 right-0 rounded-full bg-blue-900/20 blur-[100px]"></div>
+        <div className="absolute w-2/4 h-1/4 bottom-52 right-2/4 rounded-full bg-purple-500/10 blur-[70px]"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className='mb-10 text-center items-center flex justify-center'>
         <h2
           className="text-3xl md:text-5xl xl:text-6xl font-bold tracking-wider uppercase mb-8 md:mb-12 bg-gradient-to-b from-gray-100 via-gray-300 to-gray-500 bg-clip-text text-transparent text-center" 
@@ -57,12 +65,11 @@ const FlowSection = () => {
         
         {/* Mobile view: vertical steps with center alignment */}
         <div className="md:hidden flex flex-col items-center">
-
           
           {investmentSteps.map((step, index) => (
             <div key={index} className="mb-16 flex flex-col items-center relative z-10">
               {/* Step circle */}
-              <div className="w-16 h-16 rounded-full bg-purple-600 text-white flex items-center justify-center text-xl font-bold mb-4">
+              <div className="w-16 h-16 rounded-full bg-purple-600 text-white flex items-center justify-center text-xl font-bold mb-4 shadow-lg shadow-purple-500/20">
                 {step.step}
               </div>
               
@@ -76,9 +83,9 @@ const FlowSection = () => {
         </div>
         
         {/* Desktop view: horizontal timeline */}
-        <div className="hidden md:block relative ">
+        <div className="hidden md:block relative">
           {/* Timeline connector line */}
-          <div className="absolute top-1/4 left-0 w-full h-1 bg-gray-200 z-0"></div>
+          <div className="absolute top-1/4 left-0 w-full h-1 bg-purple-500/30 z-0"></div>
           
           {/* Steps */}
           <div className="flex justify-between relative z-10">
@@ -86,7 +93,7 @@ const FlowSection = () => {
               <div key={index} className="flex-1 px-3 lg:px-4">
                 <div className="flex flex-col items-center">
                   {/* Step number */}
-                  <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-purple-600 text-white flex items-center justify-center text-xl font-bold mb-4">
+                  <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-purple-600 text-white flex items-center justify-center text-xl font-bold mb-4 shadow-lg shadow-purple-500/20">
                     {step.step}
                   </div>
   
