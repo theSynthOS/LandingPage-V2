@@ -74,7 +74,7 @@ const Navbar = () => {
   // Update active section based on scroll position
   useEffect(() => {
     const handleScroll = () => {
-      const sections = [ 'partners', 'how-it-works', 'roadmap', 'our-team', 'faq']; //add 'partners', 
+      const sections = [ 'partners', 'why-us', 'roadmap', 'how-it-works', 'faq']; //add 'partners', 
       
       // Check if we're at the hero section (top of page)
       if (window.scrollY < 100) {
@@ -181,9 +181,9 @@ const Navbar = () => {
             {/* Hidden duplicate content for lighting effect */}
             <ul aria-hidden="true" className="lit flex items-center p-0 m-0 list-none h-full justify-between text-transparent">
               <li className="px-5 py-2">Partners</li>
-              <li className="px-5 py-2">How It Works</li>
+              <li className="px-5 py-2">Why Us</li>
               <li className="px-5 py-2">Roadmap</li>
-              <li className="px-5 py-2">Our Team</li>
+              <li className="px-5 py-2">How It Works</li>
               <li className="px-5 py-2">FAQ</li>
             </ul>
             
@@ -193,13 +193,13 @@ const Navbar = () => {
                 <NavLink href="#partners" isActive={activeSection === 'partners'} onClick={(e) => handleClick(e, 'partners')}>Partners</NavLink>
               </li>
               <li>
-                <NavLink href="#how-it-works" isActive={activeSection === 'how-it-works'} onClick={(e) => handleClick(e, 'how-it-works')}>How It Works</NavLink>
+                <NavLink href="#why-us" isActive={activeSection === 'why-us'} onClick={(e) => handleClick(e, 'why-us')}>Why Us</NavLink>
               </li>
               <li>
                 <NavLink href="#roadmap" isActive={activeSection === 'roadmap'} onClick={(e) => handleClick(e, 'roadmap')}>Roadmap</NavLink>
               </li>
               <li>
-                <NavLink href="#our-team" isActive={activeSection === 'our-team'} onClick={(e) => handleClick(e, 'our-team')}>Our Team</NavLink>
+                <NavLink href="#how-it-works" isActive={activeSection === 'how-it-works'} onClick={(e) => handleClick(e, 'how-it-works')}>How It Works</NavLink>
               </li>
               <li>
                 <NavLink href="#faq" isActive={activeSection === 'faq'} onClick={(e) => handleClick(e, 'faq')}>FAQ</NavLink>

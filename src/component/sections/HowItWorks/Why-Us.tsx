@@ -63,7 +63,7 @@ const WhyUsSection = () => {
   }, [scrollYProgress]); // Only re-compute when scrollYProgress changes
 
   return (
-    <section id="how-it-works" className=" relative overscroll-none mt-24" ref={sectionRef}>
+    <section id="why-us" className=" relative overscroll-none mt-24" ref={sectionRef}>
       {/* Background gradient */}
       <div className="absolute inset-0 overflow-hidden">
       
