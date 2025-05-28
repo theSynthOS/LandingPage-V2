@@ -12,15 +12,15 @@ export default function Home() {
   return (
     <main className="">
       <HeroSection />
-      <section id="partners" className="scroll-mt-24">
+      {/* <section id="partners" className="scroll-mt-24">
         <PartnershipSection />
-      </section>
+      </section> */}
       <section id="why-us" className=" ">
         <WhyUsSection />
       </section>
-      <section id="roadmap" className="scroll-mt-24">
+      {/* <section id="roadmap" className="scroll-mt-24">
         <RoadmapSection />
-      </section>
+      </section> */}
       <section id="how-it-works" className="scroll-mt-24">
         <FlowSection />
       </section>
