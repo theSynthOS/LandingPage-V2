@@ -7,8 +7,8 @@ import { stakeCards } from './CardText';
 
 const WhyUsSection = () => {
   const container = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
   
 
   // Scroll progress for cards with optimized performance
@@ -16,25 +16,27 @@ const WhyUsSection = () => {
     target: container,
     offset: ['start start', 'end end'],
   });
-  
-  // Control sticky behavior based on scroll position
+
+  // Control when title should stop being sticky
   useEffect(() => {
-    if (!titleRef.current || !container.current) return;
-    
     const handleScroll = () => {
-      if (!titleRef.current || !container.current || !sectionRef.current) return;
+      if (!titleRef.current || !container.current) return;
       
       const containerRect = container.current.getBoundingClientRect();
-      const sectionRect = sectionRef.current.getBoundingClientRect();
-      const containerBottom = containerRect.bottom;
+      const containerHeight = container.current.offsetHeight;
+      const singleCardHeight = containerHeight / stakeCards.length;
       
-      // Make title sticky only when we're scrolling within the cards section
-      if (containerBottom < 0 || sectionRect.bottom < window.innerHeight) {
+      // Calculate when we reach the last card (top of last card)
+      const lastCardPosition = containerHeight - singleCardHeight;
+      const scrollProgress = Math.abs(containerRect.top) / containerHeight;
+      
+      // When we reach approximately 80% through the container (start of last card area)
+      if (scrollProgress >= 0.1) {
         titleRef.current.style.position = 'relative';
         titleRef.current.style.top = 'auto';
       } else {
         titleRef.current.style.position = 'sticky';
-        titleRef.current.style.top = '8px';
+        titleRef.current.style.top = '5rem'; // top-20 equivalent
       }
     };
     
@@ -63,10 +65,9 @@ const WhyUsSection = () => {
   }, [scrollYProgress]); // Only re-compute when scrollYProgress changes
 
   return (
-    <section id="why-us" className=" relative overscroll-none mt-24" ref={sectionRef}>
+    <section id="why-us" className="relative overscroll-none mt-24" ref={sectionRef}>
       {/* Background gradient */}
       <div className="absolute inset-0 overflow-hidden">
-      
         <div className="absolute inset-0 bg-[#030213]"></div>
         <div className="absolute w-full h-full bg-gradient-to-b from-[#030213] via-purple-900/20 via-[#150b39] via-[#150b39] via-[#030213] via-[#030213] to-[#030213]"></div>
         <div className="absolute w-1/2 h-screen top-1/3 left-1/4 rounded-full bg-purple-100/5 blur-[80px]"></div>
@@ -75,30 +76,33 @@ const WhyUsSection = () => {
       </div>
       
       <div className="relative z-10">
-        {/* Part 2 - Scroll Cards */}
-        <div className="relative px-3">
-          {/* Shadow gradient below the heading */}
-          <div className="absolute top-[5rem] left-1/2 -translate-x-1/4 w-[30%] md:w-[50%] h-[120px] rounded-[50%] bg-purple-500/20 blur-[60px] -z-10"></div>
-          <div className="absolute  left-1/2 -translate-x-1/2 w-[70%] md:w-[60%] h-[80px] rounded-[50%] bg-blue-400/10 blur-[50px] -z-10"></div>
-          
-          <h2 
-            className="text-center text-4xl md:text-5xl xl:text-6xl font-bold tracking-wider uppercase mb-2 bg-gradient-to-b from-gray-100 via-gray-300 to-gray-500 bg-clip-text text-transparent" 
-            style={{ 
-              letterSpacing: '0.08em',
-              fontFamily: 'Montserrat-Regular'
-            }}
-          >
-              Why{" "}
-              <span className="text-white" style={{ textShadow: '0 0 10px white, 0 0 40px yellow, 0 0 30px orange' }}>
-                SynthOS
-              </span>
-          </h2>
-          
+        {/* Sticky Title Container */}
+        <div ref={titleRef} className="sticky top-20 z-50 transition-all duration-300">
+          <div className="relative px-3">
+            {/* Shadow gradient below the heading */}
+            <div className="absolute top-[3rem] left-1/2 -translate-x-1/4 w-[30%] md:w-[50%] h-[120px] rounded-[50%] bg-purple-500/20 blur-[60px] -z-10"></div>
+            <div className="absolute top-8 left-1/2 -translate-x-1/2 w-[70%] md:w-[60%] h-[80px] rounded-[50%] bg-blue-400/10 blur-[50px] -z-10"></div>
             
-          {/* Scroll Cards Container - Optimized */}
+            <h2 
+              className="text-center text-4xl md:text-5xl xl:text-6xl font-bold tracking-wider uppercase mb-2 bg-gradient-to-b from-gray-100 via-gray-300 to-gray-500 bg-clip-text text-transparent" 
+              style={{ 
+                letterSpacing: '0.08em',
+                fontFamily: 'Montserrat-Regular'
+              }}
+            >
+                Why{" "}
+                <span className="text-white" style={{ textShadow: '0 0 10px white, 0 0 40px yellow, 0 0 30px orange' }}>
+                  SynthOS
+                </span>
+            </h2>
+          </div>
+        </div>
+        
+        {/* Scroll Cards Container - Optimized */}
+        <div className="relative px-3">
           <div 
             ref={container} 
-            className="relative min-h-[200vh] w-full will-change-transform perspective-[1200px] overflow-visible "
+            className="relative min-h-[200vh] w-full will-change-transform perspective-[1200px] overflow-visible"
             style={{
               scrollBehavior: 'smooth',
             }}

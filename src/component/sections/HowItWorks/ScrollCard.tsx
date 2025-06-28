@@ -43,7 +43,7 @@ const ScrollCard = ({ i, title, description, icon, progress, range, targetScale,
   return (
     <div 
       ref={container} 
-      className="h-screen flex items-center justify-center sticky top-0 scroll-smooth will-change-transform "
+      className="h-screen flex items-center justify-center sticky top-6 md:top-32 scroll-smooth will-change-transform"
     >
       <motion.div 
         style={{ 
