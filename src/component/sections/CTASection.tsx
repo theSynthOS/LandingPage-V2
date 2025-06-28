@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { FaArrowRight } from 'react-icons/fa';
 import GlowButton from '../GlowButton';
+import Link from 'next/link';
 
 const CTASection = () => {
   return (
@@ -32,11 +33,11 @@ const CTASection = () => {
           </h2>
           <div className="flex justify-center mt-6 md:mt-8">
            
-          <GlowButton className=' md:text-lg lg:text-xl '  >
+          <Link href="https://app.synthos.fun" target="_blank" rel="noopener noreferrer">
+          <GlowButton className=' md:text-lg lg:text-xl ' >
             <span>Try Now</span>
-            
           </GlowButton>
-            
+          </Link>
           </div>
         </div>
       </div>

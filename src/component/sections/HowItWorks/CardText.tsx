@@ -14,7 +14,7 @@ export const stakeCards = [
       title: "Personalized by AI, Not by Hype",
       description: "Your wallet activity and risk appetite shape every recommendation. Our AI adapts to your goals, ensuring your strategies are always aligned and never generic.",
       icon: <Image 
-      src="/3.png"
+      src="/ai.png"
       alt="icon"
       height={900}
       width={900}

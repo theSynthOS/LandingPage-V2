@@ -63,11 +63,11 @@ const MobileNav = () => {
         <div className="fixed inset-0 z-50 flex flex-col">
           {/* Video Background */}
           <div className="absolute inset-0 z-0 overflow-hidden">
-            <video className="absolute inset-0 object-cover w-full h-full opacity-90" autoPlay loop muted>
+            {/* <video className="absolute inset-0 object-cover w-full h-full opacity-90" autoPlay loop muted>
               <source src="/bg-heroSection-base.mp4" type="video/mp4" />
-            </video>
+            </video> */}
             {/* Dark overlay with blur for better readability */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#030213]/30 to-[#150b39]/30 backdrop-blur-md"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-[#030213]/30 to-[#150b39]/30 backdrop-blur-lg"></div>
           </div>
           
           {/* Content container - make everything relative to be above the video */}
